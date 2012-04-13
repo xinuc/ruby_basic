@@ -1,5 +1,13 @@
 # Training Ruby Programming
 
+## Requirements:
+
+Unix like operating system with ruby installed.
+Recommendation:
+
+ubuntu 11.10
+install ruby with `sudo apt-get install ruby`
+
 ## Session 1: Basic Ruby
 
 * Ruby Overview
