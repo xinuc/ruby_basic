@@ -46,6 +46,7 @@ kemudian kita jalankan dengan perintah `ruby <nama file>`
   hello
   hello
   hello
+```
 
 
 ## Object-Oriented in Ruby: Classes, Attributes, Methods
