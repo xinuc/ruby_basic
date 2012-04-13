@@ -1,12 +1,12 @@
-# Training Ruby Programming
+# Pemrograman Ruby
 
-## Requirements:
+## Persiapan:
 
-Unix like operating system with ruby installed.
-Recommendation:
+Komputer dengan sistem operasi unix-like, seperti Linux atau MacOS.
 
-ubuntu 11.10
-install ruby with `sudo apt-get install ruby`
+Kami merekomendasikan ubuntu 11.10.
+
+install ruby dengan perintah `sudo apt-get install ruby`
 
 ## Session 1: Basic Ruby
 
