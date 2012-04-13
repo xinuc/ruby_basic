@@ -1,6 +1,0 @@
-{ "name": "Ruby Basic",
-  "description": "Humble simple introduction to ruby programming language",
-  "sections": [
-    {"section":"1-intro"} 
-  ]
-}
