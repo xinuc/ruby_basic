@@ -1,4 +1,4 @@
-# Session 1: Basic Ruby
+# Session 1: Dasar Ruby
 
 ## Ruby Overview
 
@@ -16,9 +16,37 @@ Berikut ini adalah contoh program hello world di ruby:
   puts "Hello world"
 ```
 
-## IRB
+## Menjalankan ruby
 
 Cara paling mudah untuk mencoba ruby adalah dengan menggunakan irb (interactive ruby).
+
+```
+   $ irb
+   > 3 + 5
+   => 8
+   > puts "hello " * 3
+   hello hello hello
+   => nil
+```
+
+Irb sangat berguna untuk mencoba kode dan melihat hasilnya dengan cepat. Namun untuk membuat program yang sebenarnya, kita akan menyimpan kode ruby kita dalam file, yang biasanya ber ekstensi .rb.
+
+``` ruby
+  # file: hello.rb
+  4.times do
+    puts "hello"
+  end
+```
+
+kemudian kita jalankan dengan perintah `ruby <nama file>`
+
+```
+  $ ruby hello.rb
+  hello
+  hello
+  hello
+  hello
+
 
 ## Object-Oriented in Ruby: Classes, Attributes, Methods
 ## String Type and Operations
