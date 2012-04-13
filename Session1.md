@@ -48,8 +48,16 @@ kemudian kita jalankan dengan perintah `ruby <nama file>`
   hello
 ```
 
-
 ## Object-Oriented in Ruby: Classes, Attributes, Methods
+
+Ruby adalah bahasa object oriented murni. Semuanya dari integer hingga string adalah object. Setiap object memiliki *methods* yang dapat dipanggil untuk melakukan berbagai fungsi. Untuk memanggil method, kita menggunakan syntax titik (.) yang diikuti oleh nama methodnya. Contohnya, jika kita ingin mengubah kalimat "hello world" menjadi huruf kapital, kita bisa memanggil method *upcase*
+
+```ruby
+  puts "hello world".upcase
+```
+
+Beberapa method, seperti *puts* dan *gets* dapat dipanggil dimanapun dan tidak perlu digabungkan dengan object tertentu. Method - method ini ada di dalam modul *Kernel* bawaan ruby, yang di *include* di dalam semua object ruby. Ketika kita menjalankan aplikasi ruby, sebuah object dengan nama *main* dibuat secara otomatis dan memberikan kita akses ke semua method dalam module *Kernel*
+
 ## String Type and Operations
 ## Numeric Types and Mathematical Expressions
 ## Boolean Expressions
