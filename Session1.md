@@ -392,6 +392,15 @@ dari `if else` statement.
 
 ## Arrays
 
+Array adalah salah satu kelas bawaan ruby. Array adalah suatu koleksi object yang berurutan dan dapat
+diakses berdasarkan indexnya. Dalam ruby, array dapat menyimpan semua object seperti String, Fixnum,
+Hash bahkan array yang lain. Setiap elemen di dalam array diasosiasikan dan diakses dengan index
+tertentu. Elemen - elemen array secara otomatis diindex dengan angka dimulain dari 0.
+Kita dapat mengakses elemen terakhir dari array dengan menggunakan index -1,
+kedua dari belakang dengan -2 dan seterusnya. Ukuran array di ruby dinamis dan dapat bertambah sesuai
+dengan kebutuhan secara otomatis.
+
+
 ## Loop Constructs
 ## Code Blocks
 ## Ranges
