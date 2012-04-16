@@ -4,7 +4,7 @@
 
 Ruby adalah bahasa pemrograman berorientasi object murni yang dikembangkan oleh Yukihiro Matsumoto (Matz) pada tahun 1993.  Ruby merupakan bahasa interpreted, yang berarti untuk menjalankan ruby tidak perlu dicompile, tetapi cukup dijalankan dalam interpreternya.  Ruby juga merupakan bahasa dinamis. Kita tidak perlu melakukan deklarasi variable, tetapi cukup melakukan assignment secara langsung.
 
-Ruby dibuat dengan tujuan untuk membuat programmer lebih bahagia. Artinya ruby dirancang untuk mempermudah kerja dari programmer. Programmer tidak perlu melakukan banyak tugas yang dapat dilakukan oleh komputer, sehingga programmer menjadi lebih produktif. Keunggulan utama dari ruby adalah bahasa yang sangat ekspresif, yang mempermudah programmer untuk mengubah dari ide menjadi kode program.
+Ruby dibuat dengan tujuan untuk membuat programmer lebih bahagia. Artinya ruby dirancang untuk mempermudah kerja programmer. Programmer tidak perlu melakukan banyak tugas yang dapat dilakukan oleh komputer, sehingga programmer menjadi lebih produktif. Keunggulan utama dari ruby adalah bahasa yang sangat ekspresif, yang mempermudah programmer untuk mengubah dari ide menjadi kode program.
 
 Penggunaan ruby yang paling umum adalah untuk pemrograman web, dengan framework ruby on rails. Tetapi ruby adalah bahasa pemrograman umum yang dapat digunakan untuk semua keperluan programming, dari aplikasi web, desktop, scripting, hingga aplikasi mobile.
 
@@ -29,7 +29,7 @@ Cara paling mudah untuk mencoba ruby adalah dengan menggunakan irb (interactive 
    => nil
 ```
 
-Irb sangat berguna untuk mencoba kode dan melihat hasilnya dengan cepat. Namun untuk membuat program yang sebenarnya, kita akan menyimpan kode ruby kita dalam file, yang biasanya ber ekstensi .rb.
+Irb sangat berguna untuk mencoba kode dan melihat hasilnya dengan cepat. Namun untuk membuat program yang sebenarnya, kita akan menyimpan kode ruby kita dalam file, yang biasanya berekstensi .rb.
 
 ``` ruby
   # file: hello.rb
@@ -90,14 +90,16 @@ Idiom yang biasa dipakai adalah menggunakan *CamelCase* untuk nama kelas.
 contoh: `PurchasedItem`, `ProductsInventory`
 
 Kata kunci `def` digunakan untuk mendefinisikan method didalam suatu kelas atau modul.
-Pada umumnya, kita menggunakan huruf kecil dan *underscore* (_) sebagai nama kelas (biasa disebut *snake_case*).
+Pada umumnya, kita menggunakan huruf kecil dan *underscore* (_) sebagai nama method (biasa disebut *snake_case*).
 Nama method dapat mempunyai tanda baca seperti `?, !, =` pada bagian akhir.
 Tanda tanya (?) biasa digunakan dalam nama method yang mereturn boolean, sedangkan tanda seru (!) digunakan dalam
 method yang dianggap berbahaya, biasanya method yang dapat mengubah nilai.
 
 contoh: `products_list`, `buy!`, `available?`
 
-Object diinisiasi dengan memanggil method `new` pada kelasnya.
+Penamaan menggunakan *snake_case* digunakan hampir di semua hal dalam ruby selain nama kelas dan konstant.
+Instant variable selalu diawali dengan tanda `@`.  Object diinisiasi dengan memanggil method `new` pada kelasnya.
+Pada umumnya programmer ruby selalu menggunakan indentasi 2 spasi dan tidak pernah menggunakan indentasi tab.
 
 ## Object-Oriented in Ruby: Classes, Attributes, Methods
 
