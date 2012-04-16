@@ -259,7 +259,7 @@ If statement diawali dengan keyword `if` dan diakhiri dengan keyword `end`.
 Operator `!` membalikkan nilai `true / false` suatu ekspresi.
 
 ```ruby
-  if !x > y
+  if !(x > y)
     puts "X tidak lebih besar dari y"
   end
 ```
