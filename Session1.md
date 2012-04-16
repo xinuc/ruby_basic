@@ -223,25 +223,62 @@ programmer tidak perlu memikirkannya.
 contoh:
 
 ```ruby
-2411 # integer, Fixnum
-2_411 # integer, Fixnum, underscore diabaikan
-241.1 # pecahan, Float
-3.7e4 # scientific notation, Float
-3E4 # scientific notation, Float
-3E-4 # scientific notation, dengan tanda sebelum exponent
-0444 # octal, Fixnum
-0xfff # hexadecimal, Fixnum
-0b1101 # binary, Fixnum
-4567832704 # integer, Bignum
+  2411 # integer, Fixnum
+  2_411 # integer, Fixnum, underscore diabaikan
+  241.1 # pecahan, Float
+  3.7e4 # scientific notation, Float
+  3E4 # scientific notation, Float
+  3E-4 # scientific notation, dengan tanda sebelum exponent
+  0444 # octal, Fixnum
+  0xfff # hexadecimal, Fixnum
+  0b1101 # binary, Fixnum
+  4567832704 # integer, Bignum
 ```
 
 ## Boolean
 
-Ruby memiliki nilai boolean `true` dan `false`, yang merupakan object dari kelas TrueClass dan FalseClass.
+Ruby memiliki nilai boolean `true` dan `false`, yang merupakan object dari kelas `TrueClass` dan `FalseClass`.
 Dalam ruby, semua nilai selain `false` dan `nil` dianggap bernilai true dan dapat digunakan dalam operasi
 boolean, seperti conditional, `and`, `or` dan sebagainya.
 
 ## Conditional Constructs
+
+Conditional statement mengecek apakah suatu ekspresi bernilai benar atau salah dan menjalankan logic sesuai
+dengan hasil dari ekspresi tersebut.
+
+### If statement
+
+If statement diawali dengan keyword `if` dan diakhiri dengan keyword `end`.
+
+```ruby
+  if 3 > 2
+    puts "Tiga lebih besar dari dua"
+  end
+```
+
+Operator `!` membalikkan nilai `true / false` suatu ekspresi.
+
+```ruby
+  if !x > y
+    puts "X tidak lebih besar dari y"
+  end
+```
+
+Kita dapat menggunakan operasi boolean dalam if statement untuk mengecek dua ekspresi atau lebih
+menggunakan `&& (and)` dan `|| (or)`.
+
+```ruby
+  if ruby == "great" && programming == fun
+    puts "I love programming with ruby"
+  end
+```
+
+Jika ekspresi cukup pendek, kita dapat meletakkan if statement di belakang sebagai modifier.
+
+```ruby
+  puts "Tiga lebih besar dari dua" if 3 > 2
+```
+
 
 
 
