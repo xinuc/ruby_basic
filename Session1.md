@@ -118,9 +118,24 @@ Contohnya, jika kita ingin mengubah kalimat "hello world" menjadi huruf kapital,
   puts "hello world".upcase
 ```
 
-Beberapa method, seperti *puts* dan *gets* dapat dipanggil dimanapun dan tidak perlu digabungkan dengan object tertentu. Method - method ini ada di dalam modul *Kernel* bawaan ruby, yang di *include* di dalam semua object ruby. Ketika kita menjalankan aplikasi ruby, sebuah object dengan nama *main* dibuat secara otomatis dan memberikan kita akses ke semua method dalam module *Kernel*
+Beberapa method, seperti *puts* dan *gets* dapat dipanggil dimanapun dan tidak perlu digabungkan dengan object tertentu.
+Method - method ini ada di dalam modul *Kernel* bawaan ruby, yang di *include* di dalam semua object ruby.
+Ketika kita menjalankan aplikasi ruby, sebuah object dengan nama *main* dibuat secara otomatis dan memberikan kita akses
+ke semua method dalam module *Kernel*
 
 ## String Type and Operations
+
+String adalah object ruby yang berfungsi memanipulasi rangkaian byte, yang pada umumnya mereprensentasikan huruf - huruf
+dalam suatu kalimat. Ruby memiliki kelas built-in yang bernama `String` yang memiliki beberapa method yang sering kita
+gunakan dalam memprogram ruby. Pada umumnya sebuah string dideklarasikan dengan rangkaian huruf yang dibatasi oleh tanda
+petik ganda (") atau tunggal (')
+
+Berikut ini adalah fungsi - fungsi yang terkait dengan String dalam ruby:
+
+### Expression Subtitution
+
+Expression Subtitution adalah suatu cara untuk 
+
 
 ## Numeric Types and Mathematical Expressions
 ## Boolean Expressions
