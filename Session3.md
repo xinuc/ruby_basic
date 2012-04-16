@@ -66,6 +66,48 @@ end
 ```
 
 ## Advanced Blocks
+
+Salah satu fitur yang paling diunggulkan Ruby adalah *closure* (fungsi tanpa nama). *Closure* itu seperti *method* di dalam *method* lainnya, yang mengacu atau berbagai *non-local variables*. *Closure* pada Ruby diimplementasikan dengan *block*, *proc* dan *lambda*.
+
+### Block
+
+Di Ruby, *block* biasanya diapit oleh kurung kurawal `{ }`, atau dengan `do/end`.
+
+```ruby
+days = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ]
+
+days.each do |element|
+  puts element
+end
+
+days.each { |e| puts e }
+
+```
+
+#### Yield
+
+Pernyataan `yield` akan mengeksekusi *block* yang berasosiasi dengan suatu *method*.
+
+```ruby
+def foo
+  if block_given?
+    yield
+    yield
+  else
+    puts 'No block here'
+  end
+end
+
+foo { print 'Hello ' } # => Hello Hello
+
+foo # => No block here
+```
+
+### Proc
+
+### Lambda
+
+
 ## Classes as Objects
 ## Metaprogramming
 ## IO
