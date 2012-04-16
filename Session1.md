@@ -133,7 +133,7 @@ gunakan dalam memprogram ruby.
 
 Berikut ini adalah fungsi - fungsi yang terkait dengan String dalam ruby:
 
-### String Declaration
+### String declaration
 
 Pada umumnya sebuah string dideklarasikan dengan rangkaian huruf yang dibatasi oleh tanda
 petik ganda (") atau tunggal (').
@@ -161,9 +161,9 @@ STR
 
 ```
 
-### Expression Subtitution
+### Expression subtitution
 
-Expression Subtitution adalah suatu cara untuk menggabungkan hasil dari suatu ekspresi ruby ke dalam suatu string
+Expression subtitution adalah suatu cara untuk menggabungkan hasil dari suatu ekspresi ruby ke dalam suatu string
 menggunakan #{ dan }:
 
 ```ruby
@@ -173,6 +173,45 @@ menggunakan #{ dan }:
   puts "my name is #{name}"       # my name is Ruby
   puts "#{a} + #{b} = #{ a + b }" # 7 + 3 = 10
 ```
+
+### String methods
+
+Berikut ini adalah beberapa method yang dimiliki String object yang sering kita gunakan:
+
+* `str + other_str`
+  menggabungkan other_str ke str, menghasilkan object baru hasil gabungan kedua string tersebut.
+
+* `str << other_str`
+  menggabungkan other_str ke str, mengubah object str (tidak menghasilkan object baru).
+
+* `str <=> other_str`
+  membandingkan dua string, menghasilkan -1 jika str lebih kecil dari other_str, 1 jika str
+  lebih besar dari str, dan 0 jika str sama dengan other_str
+
+* `str == other_str`
+  membandingkan kesamaan dua string, menghasilkan `true` jika sama, `false` jika tidak sama.
+
+* `str =~ regex`
+  membandingkan string dengan regular expression, menghasilkan posisi pertama kesesuaian jika ada,
+  atau 0 jika tidak sesuai.
+
+* `str.capitalize`
+  mengubah huruf pertama menjadi huruf kapital, menghasilkan object baru.
+
+* `str.capitalize!`
+  mengubah huruf pertama menjadi huruf kapital dengan mengubah object yang ada.
+
+* `str.upcase`
+  mengubah semua huruf menjadi huruf kapital, menghasilkan object baru.
+
+* `str.upcase!`
+  mengubah semua huruf menjadi huruf kapital dengan mengubah object yang ada.
+
+* `str.length`
+  menghasilkan panjang string.
+
+* `str.strip`
+  menghapus whitespace yang ada di depan dan di belakang string.
 
 ## Numeric Types and Mathematical Expressions
 ## Boolean Expressions
