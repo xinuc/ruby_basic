@@ -1,6 +1,6 @@
-# Sesi 2: Pemrograman Berorientasi Objek dengan Ruby
+# Session 2: OOP with Ruby
 
-## Pendahuluan
+## Overview
 
 Seperti yang telah disebutkan sebelumnya, Ruby merupakan bahasa pemrograman yang berorientasi objek. Semua yang bisa kita manipulasi di Ruby adalah sebuah objek. 
 
@@ -25,6 +25,35 @@ hi.hello_txt # => Hello, World!
 
 Method `initialize` pada Ruby merupakan constructor, yang otomatis akan dieksekusi pertama kali setelah objek kelas tersebut diciptakan. Pada contoh di atas, method `initialize` akan mendefinisikan sebuah instance variable `@name` dan meng-assign-nya dengan argumen yang dimasukkan.
 
+
+## Instance Variables
+
+Instance variabel adalah variabel yang ada di dalam instance sebuah kelas, dan cakupannya terbatas. Sebuah instance variable diawali dengan tanda `@`, seperti instance variable pada contoh sebelumnya `@name`. Kita bisa mendefinisikan sebuah instance variable di dalam atau di luar sebuah method. Namun, kita hanya bisa mengaksesnya dari luar objek dengan menggunakan method getter (accessor) dan setter.
+
+```ruby
+class Hello
+  def initialize( name ) 
+    @name = name
+  end
+
+  def hello_txt
+    puts "Hello, " + @name + "!"
+  end
+
+  def name
+    @name
+  end
+
+  def name=(value)
+    @name = value
+  end
+end
+
+hi = Hello.new("World")
+hi.name # => World
+hi.name = "CCBI"
+hi.name # => CCBI
+```
 
 ## Access Control
 
