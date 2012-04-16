@@ -89,7 +89,6 @@ Berikut ini adalah contoh program sederhana dalam ruby:
   person.full_name     # "Slamet Riyadi"
   person.increase_age! # @age == 18
   person.mature?       # true
-
 ```
 
 Untuk membuat kelas, kita menggunakan kata kunci `class` diikuti dengan nama kelas. Nama kelas dalam ruby harus dimulai dengan huruf kapital.
@@ -133,7 +132,7 @@ gunakan dalam memprogram ruby.
 
 Berikut ini adalah fungsi - fungsi yang terkait dengan String dalam ruby:
 
-### String Declaration
+### String declaration
 
 Pada umumnya sebuah string dideklarasikan dengan rangkaian huruf yang dibatasi oleh tanda
 petik ganda (") atau tunggal (').
@@ -148,7 +147,6 @@ contoh:
 ```ruby
 %{ String menggunakan general delimiter }
 %Q{ String menggunakan general delimiter }
-
 ```
 
 Untuk membuat string lebih dari satu baris, akan lebih mudah menggunakan syntax sebagai berikut:
@@ -158,12 +156,11 @@ multiline_string = <<-STR
   ini adalah string
   lebih dari satu baris
 STR
-
 ```
 
-### Expression Subtitution
+### Expression subtitution
 
-Expression Subtitution adalah suatu cara untuk menggabungkan hasil dari suatu ekspresi ruby ke dalam suatu string
+Expression subtitution adalah suatu cara untuk menggabungkan hasil dari suatu ekspresi ruby ke dalam suatu string
 menggunakan #{ dan }:
 
 ```ruby
@@ -174,7 +171,70 @@ menggunakan #{ dan }:
   puts "#{a} + #{b} = #{ a + b }" # 7 + 3 = 10
 ```
 
-## Numeric Types and Mathematical Expressions
+### String methods
+
+Berikut ini adalah beberapa method yang dimiliki String object yang sering kita gunakan:
+
+* `str + other_str`
+  menggabungkan other_str ke str, menghasilkan object baru hasil gabungan kedua string tersebut.
+
+* `str << other_str`
+  menggabungkan other_str ke str, mengubah object str (tidak menghasilkan object baru).
+
+* `str <=> other_str`
+  membandingkan dua string, menghasilkan -1 jika str lebih kecil dari other_str, 1 jika str
+  lebih besar dari str, dan 0 jika str sama dengan other_str
+
+* `str == other_str`
+  membandingkan kesamaan dua string, menghasilkan `true` jika sama, `false` jika tidak sama.
+
+* `str =~ regex`
+  membandingkan string dengan regular expression, menghasilkan posisi pertama kesesuaian jika ada,
+  atau 0 jika tidak sesuai.
+
+* `str.capitalize`
+  mengubah huruf pertama menjadi huruf kapital, menghasilkan object baru.
+
+* `str.capitalize!`
+  mengubah huruf pertama menjadi huruf kapital dengan mengubah object yang ada.
+
+* `str.upcase`
+  mengubah semua huruf menjadi huruf kapital, menghasilkan object baru.
+
+* `str.upcase!`
+  mengubah semua huruf menjadi huruf kapital dengan mengubah object yang ada.
+
+* `str.length`
+  menghasilkan panjang string.
+
+* `str.strip`
+  menghapus whitespace yang ada di depan dan di belakang string.
+
+## Numeric
+
+Dalam ruby, angka bukanlah primitive. Setiap angka adalah object, instance dari salah satu kelas
+numeric ruby. `Numeric` adalah kelas basis untuk angka di ruby. Kelas `Fixnum` digunakan untuk
+integer, `Float` untuk angka pecahan, dan `Bignum` untuk angka integer yang lebih besar.
+
+Konversi antara angka `Fixnum` dan `Bignum` terjadi secara otomatis. Ketika suatu angka tidak
+dapat disimpan dalam `Fixnum`, akan secara otomatis diubah ke `Bignum`, sehingga kita sebagai
+programmer tidak perlu memikirkannya.
+
+contoh:
+
+```ruby
+2411 # integer, Fixnum
+2_411 # integer, Fixnum, underscore diabaikan
+241.1 # pecahan, Float
+3.7e4 # scientific notation, Float
+3E4 # scientific notation, Float
+3E-4 # scientific notation, dengan tanda sebelum exponent
+0444 # octal, Fixnum
+0xfff # hexadecimal, Fixnum
+0b1101 # binary, Fixnum
+4567832704 # integer, Bignum
+```
+
 ## Boolean Expressions
 ## Conditional Constructs
 ## Arrays
