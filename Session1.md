@@ -11,9 +11,11 @@ Programmer tidak perlu melakukan banyak tugas yang dapat dilakukan oleh komputer
 Keunggulan utama dari ruby adalah bahasa yang sangat ekspresif, yang mempermudah programmer untuk mengubah dari ide menjadi kode program.
 
 Penggunaan ruby yang paling umum adalah untuk pemrograman web, dengan framework ruby on rails.
-Tetapi ruby adalah bahasa pemrograman umum yang dapat digunakan untuk semua keperluan programming, dari aplikasi web, desktop, scripting, hingga aplikasi mobile.
+Tetapi ruby adalah bahasa pemrograman umum yang dapat digunakan untuk semua keperluan programming,
+dari aplikasi web, desktop, scripting, hingga aplikasi mobile.
 
-Ruby merupakan bahasa object oriented murni. Dalam ruby, tidak ada tipe primitif. Semua adalah object, termasuk integer, string, array, class dan sebagainya.
+Ruby merupakan bahasa object oriented murni. Dalam ruby, tidak ada tipe primitif.
+Semua adalah object, termasuk integer, string, array, class dan sebagainya.
 
 Berikut ini adalah contoh program hello world di ruby:
 
@@ -128,13 +130,26 @@ ke semua method dalam module *Kernel*
 String adalah object ruby yang berfungsi memanipulasi rangkaian byte, yang pada umumnya mereprensentasikan huruf - huruf
 dalam suatu kalimat. Ruby memiliki kelas built-in yang bernama `String` yang memiliki beberapa method yang sering kita
 gunakan dalam memprogram ruby. Pada umumnya sebuah string dideklarasikan dengan rangkaian huruf yang dibatasi oleh tanda
-petik ganda (") atau tunggal (')
+petik ganda (") atau tunggal (').
+
+contoh: "ini adalah sebuah string", 'ini juga'
 
 Berikut ini adalah fungsi - fungsi yang terkait dengan String dalam ruby:
 
 ### Expression Subtitution
 
-Expression Subtitution adalah suatu cara untuk 
+Expression Subtitution adalah suatu cara untuk menggabungkan hasil dari suatu ekspresi ruby ke dalam suatu string
+menggunakan #{ dan }:
+
+```ruby
+  name = "Ruby"
+  a = 7
+  b = 3
+  puts "my name is #{name}"        # my name is Ruby
+  puts "#{a} + #{b} = #{ a + b }" # 7 + 3 = 10
+```
+
+
 
 
 ## Numeric Types and Mathematical Expressions
