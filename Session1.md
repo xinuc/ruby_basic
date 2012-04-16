@@ -47,6 +47,57 @@ kemudian kita jalankan dengan perintah `ruby <nama file>`
   hello
   hello
 ```
+## Syntax dan Idiom
+
+Program yang ditulis dengan ruby pada umumnya mudah dibaca. Hal ini dikarenakan ruby memiliki syntax yang bersih dan sederhana.
+Readability program juga terbantu jika programmer mengikuti idiom yang umum digunakan dalam ruby.
+
+Berikut ini adalah contoh program sederhana dalam ruby:
+
+``` ruby
+  class Person
+    attr_accessor :first_name, :last_name, :age
+
+    def initialize(first_name, last_name)
+      @first_name = first_name
+      @last_name = last_name
+    end
+
+    def fullname
+      @first_name + " " + @last_name
+    end
+
+    def mature?
+      @age > 17
+    end
+
+    def increase_age!
+      @age += 1
+    end
+  end
+
+  person = Person.new "Slamet", "Riyadi"
+  person.age = 17
+  person.full_name     # "Slamet Riyadi"
+  person.increase_age! # @age == 18
+  person.mature?       # true
+
+```
+
+Untuk membuat kelas, kita menggunakan kata kunci `class` diikuti dengan nama kelas. Nama kelas dalam ruby harus dimulai dengan huruf kapital.
+Idiom yang biasa dipakai adalah menggunakan *CamelCase* untuk nama kelas.
+
+contoh: `PurchasedItem`, `ProductsInventory`
+
+Kata kunci `def` digunakan untuk mendefinisikan method didalam suatu kelas atau modul.
+Pada umumnya, kita menggunakan huruf kecil dan *underscore* (_) sebagai nama kelas (biasa disebut *snake_case*).
+Nama method dapat mempunyai tanda baca seperti `?, !, =` pada bagian akhir.
+Tanda tanya (?) biasa digunakan dalam nama method yang mereturn boolean, sedangkan tanda seru (!) digunakan dalam
+method yang dianggap berbahaya, biasanya method yang dapat mengubah nilai.
+
+contoh: `products_list`, `buy!`, `available?`
+
+Object diinisiasi dengan memanggil method `new` pada kelasnya.
 
 ## Object-Oriented in Ruby: Classes, Attributes, Methods
 
@@ -59,6 +110,7 @@ Ruby adalah bahasa object oriented murni. Semuanya dari integer hingga string ad
 Beberapa method, seperti *puts* dan *gets* dapat dipanggil dimanapun dan tidak perlu digabungkan dengan object tertentu. Method - method ini ada di dalam modul *Kernel* bawaan ruby, yang di *include* di dalam semua object ruby. Ketika kita menjalankan aplikasi ruby, sebuah object dengan nama *main* dibuat secara otomatis dan memberikan kita akses ke semua method dalam module *Kernel*
 
 ## String Type and Operations
+
 ## Numeric Types and Mathematical Expressions
 ## Boolean Expressions
 ## Conditional Constructs
