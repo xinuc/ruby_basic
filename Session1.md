@@ -279,8 +279,31 @@ Jika ekspresi cukup pendek, kita dapat meletakkan if statement di belakang sebag
   puts "Tiga lebih besar dari dua" if 3 > 2
 ```
 
+`else` dan `elsif` dapat ditambahkan sebagai opsi jika statement `if` tidak benar.
 
+```ruby
+  if x > y
+    puts "x lebih besar dari y"
+  elsif x < y
+    puts "x lebih kecil dari y"
+  else
+    puts "x sama dengan y"
+  end
+```
 
+Jika kita mengecek negasi dari suatu expresi, akan lebih jelas jika kita memakai `unless` daripada menggunakan operator `!`
+
+```ruby
+  unless x == y
+    puts "x tidak sama dengan y"
+  end
+```
+
+Seperti `if`, `unless` juga dapat kita letakkan di belakang sebagai modifier.
+
+```ruby
+  puts "Tiga tidak lebih besar dari dua" unless 3 > 2
+```
 
 ## Arrays
 ## Loop Constructs
