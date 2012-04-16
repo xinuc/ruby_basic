@@ -136,10 +136,27 @@ Bird.tweet # => Tweeeeet!!
 
 ## Inheritance
 
-Tidak seperti C++ yang mendukung multiple inheritance, Ruby menggunakan single inheritance, yaitu sebuah kelas hanya bisa mewarisi properti dari 1 parent class. 
+Pewarisan (inheritance) pada Ruby dilakukan dengan menggunakan operator `<`.
+
+```ruby
+class Bird
+  attr_accessor :chirp, :egg
+end
+
+class Duck < Bird
+  attr_accessor :quack
+end
+
+d = Duck.new
+put d.respond_to?(:egg) # => true
+```
+
+Jika kelas `Bird` di atas berada di file yang berbeda dengan kelas `Duck`, maka terlebih dulu kita perlu `require` file tersebut. Ruby akan mencari file tersebut berdasarkan `$LOAD_PATH` yang telah didefinisikan. 
 
 
 ## Modules
+
+Tidak seperti C++ yang mendukung multiple inheritance, Ruby menggunakan single inheritance, yaitu sebuah kelas hanya bisa mewarisi properti dari 1 parent class
 
 
 ## Scope
