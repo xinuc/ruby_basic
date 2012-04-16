@@ -96,9 +96,31 @@ Bird.instance_methods - Object.instance_methods # => [:chirp, :chirp=, :fly, :fl
 ```
 
 
-## Access Control
+## Class Variables
 
-## Class Variables and Methods
+Class variable merupakan variabel yang digunakan bersama oleh semua instance suatu kelas, mirip seperti konsep static variable di Java atau C++. Class variable di Ruby ditandai dengan `@@`.
+
+```ruby
+class Bird
+  @@count = 0
+
+  def initialize
+    @@count += 1
+  end
+
+  def count
+    @@count
+  end
+end
+
+b1 = Bird.new
+b2 = Bird.new
+b3 = Bird.new
+b1.count # => 3
+```
+
+
+## Class Methods
 
 
 ## Inheritance
