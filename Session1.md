@@ -129,12 +129,37 @@ ke semua method dalam module *Kernel*
 
 String adalah object ruby yang berfungsi memanipulasi rangkaian byte, yang pada umumnya mereprensentasikan huruf - huruf
 dalam suatu kalimat. Ruby memiliki kelas built-in yang bernama `String` yang memiliki beberapa method yang sering kita
-gunakan dalam memprogram ruby. Pada umumnya sebuah string dideklarasikan dengan rangkaian huruf yang dibatasi oleh tanda
-petik ganda (") atau tunggal (').
-
-contoh: "ini adalah sebuah string", 'ini juga'
+gunakan dalam memprogram ruby.
 
 Berikut ini adalah fungsi - fungsi yang terkait dengan String dalam ruby:
+
+### String Declaration
+
+Pada umumnya sebuah string dideklarasikan dengan rangkaian huruf yang dibatasi oleh tanda
+petik ganda (") atau tunggal (').
+
+contoh: `"ini adalah sebuah string"`, `'ini juga'`
+
+String juga dapat dideklarasikan dengan menggunakan *general delimiter* berupa yang diawali oleh
+`%`, `%Q`, atau `%q`.
+
+contoh:
+
+```ruby
+%{ String menggunakan general delimiter }
+%Q{ String menggunakan general delimiter }
+
+```
+
+Untuk membuat string lebih dari satu baris, akan lebih mudah menggunakan syntax sebagai berikut:
+
+```ruby
+multiline_string = <<-STR
+  ini adalah string
+  lebih dari satu baris
+STR
+
+```
 
 ### Expression Subtitution
 
@@ -145,12 +170,9 @@ menggunakan #{ dan }:
   name = "Ruby"
   a = 7
   b = 3
-  puts "my name is #{name}"        # my name is Ruby
+  puts "my name is #{name}"       # my name is Ruby
   puts "#{a} + #{b} = #{ a + b }" # 7 + 3 = 10
 ```
-
-
-
 
 ## Numeric Types and Mathematical Expressions
 ## Boolean Expressions
