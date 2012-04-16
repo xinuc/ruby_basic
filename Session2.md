@@ -98,7 +98,7 @@ Bird.instance_methods - Object.instance_methods # => [:chirp, :chirp=, :fly, :fl
 
 ## Class Variables
 
-Class variable merupakan variabel yang digunakan bersama oleh semua instance suatu kelas, mirip seperti konsep static variable di Java atau C++. Class variable di Ruby ditandai dengan `@@`.
+Class variable merupakan variabel yang digunakan bersama oleh semua instance suatu kelas, mirip seperti konsep static variable di Java atau C++. Class variable di Ruby harus diawali dengan `@@`.
 
 ```ruby
 class Bird
@@ -207,9 +207,9 @@ d.sit  # => error
 d.eat  # => error
 
 c = Chihuahua.new
+c.bark    # => 'Woof!'
 c.sitdown # => 'Sit!'
 c.run     # => error
-
 ```
 
 
@@ -244,10 +244,44 @@ b.egg # => Spawning..
 ```
 
 
-## Scope
+## Variable
+
+Di Ruby, variabel tidak perlu dideklarasikan. Ruby menggunakan "duck typing", semacam dynamic typing. Jika sebuah nilai bertingkah laku seperti tipe tertentu, misalnya integer, maka Ruby akan memberinya suatu konteks dan memberlakukannya pada kontes tersebut. If it walks like a duck, quacks like a duck, flies like a duck, and swims like a duck (or integer or float, etc.), then it is probably a duck.
+
+Sekilas ulasan kembali beberapa jenis variable di Ruby.
+
+### Local Variable
+
+Variabel lokal memiliki cakupan yang lokal juga sesuai konteksnya, misalnya di dalam suatu metode atau perulangan. Variabel lokal pada Ruby hanya boleh diawali dengan huruf kecil atau underscore (_).
+
+```ruby
+class Foo
+  def self.bar
+    Foobar = 1 # error
+    _foobar = 2
+    puts _foobar
+  end
+end
+```
+
+### Instance Variable
+
+Instance variable hanya bisa diakses dari luar suatu objek melalui accessor method. Instance variable selalu diawali dengan tanda `@`.
 
 
-## Global Variables and Constants
+### Class Variable
+
+Class variable merupakan variabel yang digunakan bersama oleh semua instance suatu kelas, mirip seperti konsep static variable di Java atau C++. Class variable di Ruby selalu diawali dengan `@@`.
+
+
+### Global Variables
+
+Global variable bisa diakses dari mana saja. Di Ruby, global variable harus diawali dengan tanda `$`.
+
+
+### Constants
+
+Variabel konstan di Ruby harus diawali dengan huruf besar, dan biasanya (secara konvensi) nama sebuah konstan ditulis dengan huruf besar semua.
 
 
 ## Formatted Textual Output
