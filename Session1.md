@@ -317,10 +317,81 @@ While loop digunakan untuk mengeksekusi suatu blok kode selama nilai conditional
   end
 ```
 
-Pada prakteknya, kita akan sangat jarang menggunakan `while` untuk melakukan loop.
+### Until statement
+
+Sebagaimana `unless` adalah negasi dari `if`, statement `until` adalah negasi dari `while`, yaitu
+akan mengeksekusi blok kode sampai nilai conditionalnya menjadi `true`.
+
+```ruby
+  i = 0
+  until i >= 10
+    puts "hello"
+    i += 1
+  end
+```
+
+
+Pada prakteknya, kita akan sangat jarang menggunakan `while` dan `until` untuk melakukan loop.
 Kita akan lebih sering melakukan iterasi menggunakan method `each` yang dimiliki suatu array / koleksi.
 
+### Case statement
+
+Statement `case` dan `when` dalam ruby memberikan cara untuk mengekspresikan conditional logic dalam bentuk
+yang sangat ringkas. `case` mirip dengan `switch` dalam bahasa pemrograman lain, tetapi `case` dapat
+mengecek semua tipe object yang dapat dibandingkan kesamaannya atau ekuivalensinya.
+
+Menggunakan `case` statement lebih ringkas daripada menggunakan `if else` karena kita berasumsi membandingkan
+kesamaan dengan `==`.
+
+```ruby
+  lang = "fr"
+  dog = case lang
+    when "en"
+      "dog"
+    when "es"
+      "perro"
+    when "fr"
+      "chien"
+    when "de"
+      "Hund"
+    else
+      "dog"
+  end
+```
+
+`case` dapat digunakan untuk melakukan perbandingan nilai dalam range tertentu
+
+```ruby
+  scale = 8
+  case scale
+    when 0
+      puts "lowest"
+    when 1..3
+      puts "medium-low"
+    when 4..5
+      puts "medium"
+    when 6..7
+      puts "medium-high"
+    when 8..9
+      puts "high"
+    when 10
+      puts "highest"
+    else
+      "oputsff scale"
+  end
+```
+
+### Operator ternary
+
+Operator ternary (?:) adalah struktur yang diwarisikan dari C ke ruby. Operator ini merupakan bentuk pendek
+dari `if else` statement.
+
+```ruby
+  size = length > 100 ? "Big" : "Small"
+```
+
 ## Arrays
+
 ## Loop Constructs
 ## Code Blocks
 ## Ranges
