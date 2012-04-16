@@ -89,7 +89,6 @@ Berikut ini adalah contoh program sederhana dalam ruby:
   person.full_name     # "Slamet Riyadi"
   person.increase_age! # @age == 18
   person.mature?       # true
-
 ```
 
 Untuk membuat kelas, kita menggunakan kata kunci `class` diikuti dengan nama kelas. Nama kelas dalam ruby harus dimulai dengan huruf kapital.
@@ -148,7 +147,6 @@ contoh:
 ```ruby
 %{ String menggunakan general delimiter }
 %Q{ String menggunakan general delimiter }
-
 ```
 
 Untuk membuat string lebih dari satu baris, akan lebih mudah menggunakan syntax sebagai berikut:
@@ -158,7 +156,6 @@ multiline_string = <<-STR
   ini adalah string
   lebih dari satu baris
 STR
-
 ```
 
 ### Expression subtitution
