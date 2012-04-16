@@ -136,7 +136,7 @@ Bird.tweet # => Tweeeeet!!
 
 ## Inheritance
 
-Pewarisan (inheritance) pada Ruby dilakukan dengan menggunakan operator `<`.
+Pewarisan (inheritance) pada Ruby dilakukan dengan menggunakan operator `<`. Tidak seperti C++ yang mendukung multiple inheritance, Ruby menggunakan single inheritance, yaitu sebuah kelas hanya bisa mewarisi properti dari 1 parent class. 
 
 ```ruby
 class Bird
@@ -156,8 +156,33 @@ Jika kelas `Bird` di atas berada di file yang berbeda dengan kelas `Duck`, maka 
 
 ## Modules
 
-Tidak seperti C++ yang mendukung multiple inheritance, Ruby menggunakan single inheritance, yaitu sebuah kelas hanya bisa mewarisi properti dari 1 parent class
+Pada Ruby, modul itu mirip seperti kelas, tetapi tidak bisa di-instantiate. Sebuah kelas dapat mengandung > 1 modul. sehingga ketika kelas tersebut di-instantiate, maka semua properti dari modul-modul tersebut akan tercakup pada objek si kelas. Hal ini memungkinkan konsep yang mirip dengan multiple inheritance. Identifier pada tiap-tiap modul akan di-override oleh definisi yang terakhir. Dengan demikian, penamaan yang bertabrakan bisa dihindari. 
 
+Pada Ruby, modul juga merupakan sebuah namespace. Sebuah namespace adalah sekumpulan nama (seperti nama-nama method), yang memiliki cakupan/konteks. Sebuah kelas Ruby juga bisa dianggap sebagai namespace. 
+
+Penamaan modul harus diawali dengan huruf besar. Sebuah modul bisa mengandung metode, konstan, modul lain dan bahkan kelas. Sebuah modul bisa diwarisi oleh modul lain, tetapi tidak bisa diwarisi oleh sebuah kelas.
+
+```ruby
+module FlyingAnimal
+  def fly
+    puts "Flying high.."
+  end
+end
+
+module LayingAnimal
+  def egg
+    puts "Spawning.."
+  end
+end
+
+class Bird
+  include FlyingAnimal, LayingAnimal
+end
+
+b = Bird.new
+b.fly # => Flying high..
+b.egg # => Spawning..
+```
 
 ## Scope
 
