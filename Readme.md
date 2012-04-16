@@ -34,6 +34,7 @@ install ruby dengan perintah `sudo apt-get install ruby`
 * Class Variables
 * Class Methods
 * Inheritance
+* Access Control
 * Modules
 * Scope
 * Global Variables and Constants

@@ -154,6 +154,65 @@ put d.respond_to?(:egg) # => true
 Jika kelas `Bird` di atas berada di file yang berbeda dengan kelas `Duck`, maka terlebih dulu kita perlu `require` file tersebut. Ruby akan mencari file tersebut berdasarkan `$LOAD_PATH` yang telah didefinisikan. 
 
 
+## Access Control
+
+Akses ke metode dan konstan pada suatu kelas di Ruby, bisa diatur dengan kata kunci berikut ini:
+
+* `public`
+  Default, bisa diakses oleh siapa saja dari mana saja.
+
+* `private`
+  Membatasi cakupan suatu metode hanya bisa diakses oleh objek tersebut.
+
+* `protected`
+  Bisa diakses oleh objek dari kelas tersebut dan dari kelas-kelas turunannya.
+
+```ruby
+class Dog
+  def bark
+    puts "Woof!"
+  end
+
+  private
+
+  def walk
+    puts "Walk!"
+  end
+
+  protected
+
+  def sit
+    puts "Sit!"
+  end
+
+  def eat
+    puts "Eat!"
+  end
+end
+
+class Chihuahua < Dog
+  def sitdown
+    self.sit
+  end
+
+  def run
+    self.walk
+  end
+end
+
+d = Dog.new
+d.bark # => 'Woof!'
+d.walk # => error
+d.sit  # => error
+d.eat  # => error
+
+c = Chihuahua.new
+c.sitdown # => 'Sit!'
+c.run     # => error
+
+```
+
+
 ## Modules
 
 Pada Ruby, modul itu mirip seperti kelas, tetapi tidak bisa di-instantiate. Sebuah kelas dapat mengandung > 1 modul. sehingga ketika kelas tersebut di-instantiate, maka semua properti dari modul-modul tersebut akan tercakup pada objek si kelas. Hal ini memungkinkan konsep yang mirip dengan multiple inheritance. Identifier pada tiap-tiap modul akan di-override oleh definisi yang terakhir. Dengan demikian, penamaan yang bertabrakan bisa dihindari. 
@@ -183,6 +242,7 @@ b = Bird.new
 b.fly # => Flying high..
 b.egg # => Spawning..
 ```
+
 
 ## Scope
 
