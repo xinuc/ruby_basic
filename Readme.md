@@ -30,6 +30,7 @@ install ruby dengan perintah `sudo apt-get install ruby`
 
 * Advanced OOP in Ruby
 * Instance Variables
+* Accessors
 * Access Control
 * Class Variables and Methods
 * Inheritance

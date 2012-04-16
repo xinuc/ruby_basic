@@ -28,7 +28,7 @@ Method `initialize` pada Ruby merupakan constructor, yang otomatis akan diekseku
 
 ## Instance Variables
 
-Instance variabel adalah variabel yang ada di dalam instance sebuah kelas, dan cakupannya terbatas. Sebuah instance variable diawali dengan tanda `@`, seperti instance variable pada contoh sebelumnya `@name`. Kita bisa mendefinisikan sebuah instance variable di dalam atau di luar sebuah method. Namun, kita hanya bisa mengaksesnya dari luar objek dengan menggunakan method getter (accessor) dan setter.
+Instance variabel adalah variabel yang ada di dalam instance sebuah kelas, dan cakupannya terbatas. Sebuah instance variable diawali dengan tanda `@`, seperti instance variable pada contoh sebelumnya `@name`. Kita bisa mendefinisikan sebuah instance variable di dalam atau di luar sebuah method. Namun, kita hanya bisa mengaksesnya dari luar objek dengan menggunakan method accessor: getter dan setter.
 
 ```ruby
 class Hello
@@ -55,8 +55,48 @@ hi.name = "CCBI"
 hi.name # => CCBI
 ```
 
-## Access Control
 
+## Accessors
+
+Ruby menyederhanakan pembuatan getter dan setter secara meta-programming dari kelas `Module`, yakni menggunakan method `attr`, `attr_reader`, `attr_writer` dan `attr_accessor`.
+
+Method `attr` akan membuat sebuah getter. Jika argumen keduanya `true`, ia juga akan membuat sebuah setter.
+
+```ruby
+class Bird
+  attr :chirp, true
+end
+
+Bird.instance_methods - Object.instance_methods # => ["chirp","chirp="]
+
+bird = Bird.new
+bird.chirp = "Tweet!"
+bird.chirp # =>  Tweet!
+```
+
+Method `attr_reader` akan menciptakan getter, sedangkan method `attr_writer` akan menciptakan setter.
+
+```ruby
+class Bird
+  attr_reader :chirp # getter
+  attr_writer :chirp # setter
+end
+
+Bird.instance_methods - Object.instance_methods # => ["chirp","chirp="]
+```
+
+Method `attr_accessor` akan memberikan efek yang sama seperti jika memanggil `attr_reader` dan `attr_writer`.
+
+```ruby
+class Bird
+  attr_accessor :chirp, :fly, :spawn
+end
+
+Bird.instance_methods - Object.instance_methods # => [:chirp, :chirp=, :fly, :fly=, :spawn, :spawn=]
+```
+
+
+## Access Control
 
 ## Class Variables and Methods
 
