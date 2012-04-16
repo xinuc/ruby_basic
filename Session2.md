@@ -122,6 +122,17 @@ b1.count # => 3
 
 ## Class Methods
 
+Class method (static method) merupakan method yang berasosiasi dengan kelas atau module di Ruby, bukan instance dari suatu kelas. Kita bisa mengeksekusi sebuah class method tanpa sebuah instance objek. Class method di Ruby selalu diawali dengan `self.`
+
+```ruby
+class Bird
+  def self.tweet
+    puts "Tweeeeet!!"
+  end
+end
+
+Bird.tweet # => Tweeeeet!!
+```
 
 ## Inheritance
 
