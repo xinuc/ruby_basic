@@ -381,6 +381,15 @@ kesamaan dengan `==`.
   end
 ```
 
+### Operator ternary
+
+Operator ternary (?:) adalah struktur yang diwarisikan dari C ke ruby. Operator ini merupakan bentuk pendek
+dari `if else` statement.
+
+```ruby
+  size = length > 100 ? "Big" : "Small"
+```
+
 ## Arrays
 
 ## Loop Constructs
