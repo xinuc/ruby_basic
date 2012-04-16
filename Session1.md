@@ -305,6 +305,21 @@ Seperti `if`, `unless` juga dapat kita letakkan di belakang sebagai modifier.
   puts "Tiga tidak lebih besar dari dua" unless 3 > 2
 ```
 
+### While statement
+
+While loop digunakan untuk mengeksekusi suatu blok kode selama nilai conditionalnya `true`.
+
+```ruby
+  i = 0
+  while i < 10
+    puts "hello"
+    i += 1
+  end
+```
+
+Pada prakteknya, kita akan sangat jarang menggunakan `while` untuk melakukan loop.
+Kita akan lebih sering melakukan iterasi menggunakan method `each` yang dimiliki suatu array / koleksi.
+
 ## Arrays
 ## Loop Constructs
 ## Code Blocks
