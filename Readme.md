@@ -37,7 +37,6 @@ install ruby dengan perintah `sudo apt-get install ruby`
 * Access Control
 * Modules
 * Variable
-* Formatted Textual Output
 
 ## Session 3: Advanced Topic
 

@@ -282,7 +282,3 @@ Global variable bisa diakses dari mana saja. Di Ruby, global variable harus diaw
 ### Constants
 
 Variabel konstan di Ruby harus diawali dengan huruf besar, dan biasanya (secara konvensi) nama sebuah konstan ditulis dengan huruf besar semua.
-
-
-## Formatted Textual Output
-
