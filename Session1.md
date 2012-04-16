@@ -210,7 +210,31 @@ Berikut ini adalah beberapa method yang dimiliki String object yang sering kita 
 * `str.strip`
   menghapus whitespace yang ada di depan dan di belakang string.
 
-## Numeric Types and Mathematical Expressions
+## Numeric
+
+Dalam ruby, angka bukanlah primitive. Setiap angka adalah object, instance dari salah satu kelas
+numeric ruby. `Numeric` adalah kelas basis untuk angka di ruby. Kelas `Fixnum` digunakan untuk
+integer, `Float` untuk angka pecahan, dan `Bignum` untuk angka integer yang lebih besar.
+
+Konversi antara angka `Fixnum` dan `Bignum` terjadi secara otomatis. Ketika suatu angka tidak
+dapat disimpan dalam `Fixnum`, akan secara otomatis diubah ke `Bignum`, sehingga kita sebagai
+programmer tidak perlu memikirkannya.
+
+contoh:
+
+```ruby
+2411 # integer, Fixnum
+2_411 # integer, Fixnum, underscore diabaikan
+241.1 # pecahan, Float
+3.7e4 # scientific notation, Float
+3E4 # scientific notation, Float
+3E-4 # scientific notation, dengan tanda sebelum exponent
+0444 # octal, Fixnum
+0xfff # hexadecimal, Fixnum
+0b1101 # binary, Fixnum
+4567832704 # integer, Bignum
+```
+
 ## Boolean Expressions
 ## Conditional Constructs
 ## Arrays
