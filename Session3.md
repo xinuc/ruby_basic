@@ -81,7 +81,6 @@ days.each do |element|
 end
 
 days.each { |e| puts e }
-
 ```
 
 #### Yield
@@ -105,7 +104,44 @@ foo # => No block here
 
 ### Proc
 
+Ruby memungkinkan kita menyimpan *procedure* atau `Proc` sebagai objek lengkap dengan konteksnya.
+
+Penggunaan *block* pada Ruby itu relatif sederhana. Meskipun demikian, kita mungkin perlu punya beberapa *block* yang berbeda dan menggunakannya berkali-kali. Untuk menghindari kode yang repetitif tersebut, kita bisa menyimpannya sebagai *procedure* atau `Proc`, sebagai objek yang lengkap dengan konteksnya. Perbedaan antara *block* dan `Proc` adalah *block* merupakan suatu `Proc` yang tidak bisa disimpan dan merupakan solusi sekali pakai. 
+
+```ruby
+def foo
+  count = Proc.new do
+    [1,2,3,4,5].each do |i| 
+      print i 
+    end
+  end
+
+  count.call
+  print " - " 
+  count.call
+  puts
+end
+
+foo # => 12345 - 12345
+```
+
+
 ### Lambda
+
+Di Ruby, *lambda* merupakan suatu *method* yang menciptakan objek *Proc* yang terkait dengan konteks saat ini dan melakukan pengecekan parameter ketika dipanggil.
+
+Berbeda dengan Proc, lambda akan mengecek jumlah argumen yang dioper. 
+
+```ruby
+def foo(code)
+  one, two = 1, 2
+  code.call(one, two)
+end
+
+foo(Proc.new { |a, b, c| puts "a = #{a}, b = #{b}, c = #{c.class}" } ) # => a = 1, b = 2, c = NilClass
+
+foo(lambda { |a, b, c| puts "a = #{a}, b = #{b}, c = #{c.class}" } ) # => ArgumentError: wrong number of arguments (2 for 3)
+```
 
 
 ## Classes as Objects
