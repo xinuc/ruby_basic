@@ -235,8 +235,16 @@ contoh:
 4567832704 # integer, Bignum
 ```
 
-## Boolean Expressions
+## Boolean
+
+Ruby memiliki nilai boolean `true` dan `false`, yang merupakan object dari kelas TrueClass dan FalseClass.
+Dalam ruby, semua nilai selain `false` dan `nil` dianggap bernilai true dan dapat digunakan dalam operasi
+boolean, seperti conditional, `and`, `or` dan sebagainya.
+
 ## Conditional Constructs
+
+
+
 ## Arrays
 ## Loop Constructs
 ## Code Blocks
