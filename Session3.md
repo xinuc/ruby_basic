@@ -145,5 +145,27 @@ foo(lambda { |a, b, c| puts "a = #{a}, b = #{b}, c = #{c.class}" } ) # => Argume
 
 
 ## Classes as Objects
+
+*Object* merupakan *root* dari hierarki kelas di Ruby. Semua *method* dari kelas *Object* akan tersedia di seluruh kelas kecuali di-*override* secara eksplisit. Selengkapnya ada di http://www.ruby-doc.org/core/classes/Object.html
+
+
 ## Metaprogramming
+
+*Metaprogramming* merupakan pemrograman yang memanipulasi program lainnya atau bahkan dirinya sendiri, atau mengerjakan hal-hal yang biasanya dilakukan pada *compile time*, pada waktu *runtime*. Kemampuan suatu objek untuk memanipulasi dirinya sendiri ini sering disebut sebagai *reflection*.
+
+### Monkey Patching
+
+Salah satu bentuk *metaprogramming* adalah *monkey patching*, yaitu memodifikasi *runtime code* dari suatu bahasa yang dinamis tanpa mengubah *source code* aslinya. 
+
+```ruby
+class Array
+  def foo
+    puts "Monkey patched!"
+  end
+end
+
+[ 1, 2, 3, 4, 5 ].foo # => Monkey patched!
+```
+
+
 ## IO
