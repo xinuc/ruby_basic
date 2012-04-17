@@ -54,9 +54,46 @@ kita buat dengan assertion.
   end
 ```
 
-kemudian kita jalankan dengan `ruby person_test.rb`.
+atau kita dapat menuliskan test dengan gaya rspec:
 
-## Introduction to TDD
+```ruby
+  # person_test.rb
+  require './person'
+  require 'minitest/autorun'
+
+  describe Person do
+    before do
+      @person = Person.new "John", "Smith"
+    end
+
+    it "should create a correct fullname" do
+      @person.fullname.must_equal "John Smith"
+    end
+  end
+```
+
+kemudian kita jalankan dengan `ruby person_test.rb`, yang akan
+menghasilkan
+
+```
+Run options: --seed 6446
+
+# Running tests:
+
+.
+
+Finished tests in 0.000741s, 1349.7900 tests/s, 1349.7900 assertions/s.
+
+1 tests, 1 assertions, 0 failures, 0 errors, 0 skips
+```
+
+yang berarti bahwa ada 1 test yang dijalankan tanpa failure.
+
+### Introduction to TDD
+
+TDD (test driven development) adalah 
+
+
 ## Red-Green-Refactor
 ## Describing a feature
 ## Verifying expectations
