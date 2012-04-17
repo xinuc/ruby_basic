@@ -538,6 +538,28 @@ end
 ```
 
 ## Regular Expressions
+
+_Regular Expression_ dalam ruby ditangani oleh kelas `Regexp`. 
+Untuk membentuk regular expression, sintaks yang digunakan sama dengan Perl.
+Regular expression dalam ruby juga memiliki fitur string interpolation.
+
+```ruby
+movie_title_regexp = /^the/i
+
+string = "the"
+also_movie_title_regexp = /^#{string}/i # => /^the/i
+```
+
+Untuk mencocokan pola regular expression dengan sebuah string, bisa menggunakan method `=~` atau `[]` dari string.
+`=~` mengembalikan indeks pola yang pertama kali cocok, sedangkan `[]` mengembalikan substring yang cocok.
+
+```ruby
+has_and = /and/i
+
+"Sand Man" =~ has_and # => 1
+"Sand Man"[has_and] # => "and"
+```
+
 ## Symbols
 ## Hashes
 ## Methods
