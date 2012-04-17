@@ -11,20 +11,19 @@ install ruby dengan perintah `sudo apt-get install ruby`
 ## Session 1: Basic Ruby
 
 * Ruby Overview
-* Console I/O
+* Menjalankan Ruby
+* Syntax dan Idiom
 * Object-Oriented in Ruby: Classes, Attributes, Methods
 * String Type and Operations
-* Numeric Types and Mathematical Expressions
-* Boolean Expressions
+* Numeric
+* Boolean
 * Conditional Constructs
 * Arrays
-* Loop Constructs
 * Code Blocks
 * Ranges
 * Regular Expressions
 * Symbols
 * Hashes
-* Methods
 
 ## Session 2: OOP with Ruby
 
@@ -48,12 +47,10 @@ install ruby dengan perintah `sudo apt-get install ruby`
 
 ## Session 4: Testing
 
-* Unit Testing with Test::Unit
-* Leveraging Libraries
-* RubyForge and RubyGems
+* Libraries
+* Instalasi & Menggunakan Gems
+* Bundler
 * Packaging Programs and Libraries for Distribution
+* Testing
+* Unit Testing with Minitest
 * Introduction to TDD
-* Red-Green-Refactor
-* Describing a feature
-* Verifying expectations
-* Mocks & Stubs
