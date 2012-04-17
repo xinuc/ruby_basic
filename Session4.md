@@ -2,8 +2,28 @@
 
 ## Libraries
 
-## Leveraging Libraries
-## RubyGems & Bundler
+Salah satu keunggulan ruby adalah ruby memiliki banyak sekali library
+yang bisa kita pakai sesuai kebutuhan kita.
+Standar distribusi library di ruby adalah dengan menggunakan format yang
+bernama *gem*.
+
+### Leveraging Libraries
+
+Sebuah gem adalah suatu kumpulan file library beserta metadatanya yang
+dikompresi dengan gzip, biasanya dengan ekstensi `.gem`.
+Untuk menginstall suatu library menggunakan gem, kita menggunakan
+perintah
+
+```
+  $ gem install <nama gem>
+```
+
+Untuk menggunakan library, baik yang bawaan ruby maupun yang diinstall
+menggunakan gem, kita menggunakan method `require "<nama file>"`.
+
+### RubyGems & Bundler
+
+
 ## Packaging Programs and Libraries for Distribution
 
 
