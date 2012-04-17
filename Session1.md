@@ -462,7 +462,51 @@ Berikut ini adalah beberapa method penting yang sering kita pakai:
 
 ## Code Blocks
 
+Sebuah _block_ dapat dianggap sebagai sebuah method yang tidak memiliki nama.
+Block dalam ruby dapat ditulis di dalam _brackets_ `{...}` atau `do...end`.
+Konsep block sering dipakai dalam ruby, misalnya dalam beberapa method milik array.
 
+```ruby
+[1,2,3].each do |item|
+  puts item
+end
+```
+
+Sebuah block dapat dibuat secara independen dengan kode berikut:
+
+```ruby
+print_item = proc do |item|
+  puts item
+end
+
+print_item2 = Proc.new do |item|
+  puts item
+end
+```
+
+Untuk mem-pass suatu block independen sebagai argumen suatu method, variabel block tersebut diberi prefix `&`
+
+```ruby
+print_item = proc do |item|
+  puts item
+end
+
+[1,2,3].each &print_item
+```
+
+Block juga berperilaku sebagai _closure_, yaitu kode dalam sebuah block dapat mengakses variabel diluarnya,
+tetapi kode di luar block tidak dapat mengakses variabel lokal dalam block tersebut.
+
+```ruby
+prefix = "print "
+print_item = proc do |item|
+  puts prefix
+  puts item
+end
+
+[1,2,3].each &print_item
+puts item # error
+```
 
 ## Ranges
 ## Regular Expressions
