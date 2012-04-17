@@ -486,6 +486,57 @@ puts item # error
 ```
 
 ## Ranges
+
+_Range_ memberikan cara mudah untuk merepresentasikan urutan alfanumerik (angka dan huruf).
+Range dapat digunakan sebagai sekuens maupun untuk pengecekan interval.
+
+```ruby
+one_to_ten = 1..10
+a_to_z = "a".."z"
+a0_to_z9 = "a0".."z9"
+```
+
+### Range Sebagai Sekuens
+
+Range dapat diperlakukan sebagai array dan diiterasi:
+
+```ruby
+(1..20).each do |num|
+  puts num
+end
+```
+
+Ukuran langkah tiap satuan item dapat ditentukan dengan method `step`
+
+```ruby
+(1..20).step(3).each do |num|
+  puts num
+end
+```
+
+### Range Sebagai Interval
+
+Range dapat digunakan untuk menentukan apakah suatu angka/string termasuk dalam interval tertentu
+
+```ruby
+(1..20) === 22 # => false
+```
+
+Ini berarti range dapat digunakan dengan mudah dalam statement `case...when`
+
+```ruby
+num = 9001
+
+case num
+when 1..10
+  puts "Below ten"
+when 10..9000
+  puts "Below nine thousand"
+else
+  puts "Over nine thousaaaand!!!"
+end
+```
+
 ## Regular Expressions
 ## Symbols
 ## Hashes
