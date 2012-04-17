@@ -486,7 +486,87 @@ puts item # error
 ```
 
 ## Ranges
+
+_Range_ memberikan cara mudah untuk merepresentasikan urutan alfanumerik (angka dan huruf).
+Range dapat digunakan sebagai sekuens maupun untuk pengecekan interval.
+
+```ruby
+one_to_ten = 1..10
+a_to_z = "a".."z"
+a0_to_z9 = "a0".."z9"
+```
+
+### Range Sebagai Sekuens
+
+Range dapat diperlakukan sebagai array dan diiterasi:
+
+```ruby
+(1..20).each do |num|
+  puts num
+end
+```
+
+Ukuran langkah tiap satuan item dapat ditentukan dengan method `step`
+
+```ruby
+(1..20).step(3).each do |num|
+  puts num
+end
+```
+
+### Range Sebagai Interval
+
+Range dapat digunakan untuk menentukan apakah suatu angka/string termasuk dalam interval tertentu
+
+```ruby
+(1..20) === 22 # => false
+```
+
+Ini berarti range dapat digunakan dengan mudah dalam statement `case...when`
+
+```ruby
+num = 9001
+
+case num
+when 1..10
+  puts "Below ten"
+when 10..9000
+  puts "Below nine thousand"
+else
+  puts "Over nine thousaaaand!!!"
+end
+```
+
 ## Regular Expressions
+
+_Regular Expression_ dalam ruby ditangani oleh kelas `Regexp`. 
+Untuk membentuk regular expression, sintaks yang digunakan sama dengan Perl.
+Regular expression dalam ruby juga memiliki fitur string interpolation.
+
+```ruby
+movie_title_regexp = /^the/i
+
+string = "the"
+also_movie_title_regexp = /^#{string}/i # => /^the/i
+```
+
+Untuk mencocokan pola regular expression dengan sebuah string, bisa menggunakan method `=~` atau `[]` dari string.
+`=~` mengembalikan indeks pola yang pertama kali cocok, sedangkan `[]` mengembalikan substring yang cocok.
+
+```ruby
+has_and = /and/i
+
+"Sand Man" =~ has_and # => 1
+"Sand Man"[has_and] # => "and"
+```
+
 ## Symbols
+
+Ruby memiliki object spesial yang bernama *symbol*. Symbol selalu diawali dengan titik dua `:`,
+seperti `:indonesia`. Hanya memiliki satu copy untuk setiap symbol, sehingga symbol yang sama
+pasti memiliki object yang sama.
+
+Symbol biasanya digunakan sebagai `key` atau indentifier dalam hash atau object ruby.
+
 ## Hashes
 ## Methods

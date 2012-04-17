@@ -7,7 +7,7 @@ yang bisa kita pakai sesuai kebutuhan kita.
 Standar distribusi library di ruby adalah dengan menggunakan format yang
 bernama *gem*.
 
-### Leveraging Libraries
+### Instalasi & menggunakan gems
 
 Sebuah gem adalah suatu kumpulan file library beserta metadatanya yang
 dikompresi dengan gzip, biasanya dengan ekstensi `.gem`.
@@ -18,14 +18,116 @@ perintah
   $ gem install <nama gem>
 ```
 
+contoh, kita akan menginstall builder, library untuk membuat dokumen xml:
+
+```
+  $ gem install builder
+```
+
 Untuk menggunakan library, baik yang bawaan ruby maupun yang diinstall
 menggunakan gem, kita menggunakan method `require "<nama file>"`.
 
-### RubyGems & Bundler
+```ruby
+require "rubygems" # tidak dibutuhkan untuk ruby 1.9 ke atas
+require "builder"
 
+xml = Builder::XmlMarkup.new
+xml.person do
+  xml.name "Slamet Riyadi"
+  xml.location "Indonesia"
+end
+```
 
-## Packaging Programs and Libraries for Distribution
+### Bundler
 
+Untuk memanage library-library yang digunakan pada suatu project, kita dapat
+menggunakan bundler.
+
+Pada root directory suatu project, kita mencatat semua library yang kita gunakan
+beserta versi masing-masing pada file dengan nama *Gemfile*.
+
+```
+mkdir my_project
+cd my_project
+touch Gemfile
+```
+
+```ruby
+# Gemfile
+source 'http://rubygems.org'
+
+gem 'rails', '3.2.3'
+gem "authlogic"
+gem 'will_paginate', :git => "git://github.com/bukalapak/will_paginate.git"
+gem "simple_form", "~> 2.0"
+gem "whenever", :require => false
+```
+
+Untuk menginstall library yang dibutuhkan, kita menggunakan perintah `bundle install`.
+Bundler kemudian akan membuat file dengan nama *Gemfile.lock* yang mencatat versi
+library yang digunakan saat ini, sehingga ketika kita menjalankan `bundle install`
+pada lain waktu, kita akan mendapatkan library dengan versi yang sama.
+
+Kemudian pada project kita, kita me-load library menggunakan bundler sebagai berikut:
+
+```ruby
+require "rubygems"
+require "bundler/setup"
+
+require "authlogic"
+```
+
+### Packaging Programs and Libraries for Distribution
+
+Untuk membuat kode kita menjadi gem, kita akan menggunakan bundler untuk menyiapkan
+package dan strukturnya, sebagai berikut:
+
+```
+bundle gem namagem
+```
+
+yang akan menghasilkan struktur direktori di mana kita bisa meletakkan file-file library kita.
+Kemudian kita edit file namagem.gemspec dengan data yang sesuai:
+
+```ruby
+# -*- encoding: utf-8 -*-
+$:.push File.expand_path("../lib", __FILE__)
+require "namagem/version"
+
+Gem::Specification.new do |s|
+  s.name        = "namagem"
+  s.version     = Namagem::VERSION
+  s.platform    = Gem::Platform::RUBY
+  s.authors     = ["Nugroho Herucahyono"]
+  s.email       = ["xinuc@xinuc.org"]
+  s.homepage    = ""
+  s.summary     = %q{Gem tanpa fitur}
+  s.description = %q{Gem tanpa fitur.}
+  
+  s.add_development_dependency "rspec"
+
+  s.rubyforge_project = "namagem"
+
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.require_paths = ["lib"]
+end
+```
+
+Selanjutnya kita dapat melakukan build gem tersebut.
+
+```
+gem build namagem.gemspec
+```
+
+Pada umumnya, library ruby opensource dipublish oleh penulisnya ke rubygems.org,
+sehingga siapapun dapat menginstall dan menggunakannya dengan mudah.
+Kita dapat mempublish gem kita dengan perintah sebagai berikut:
+
+```
+gem push namagem-0.0.1.gem
+```
 
 ## Testing
 
