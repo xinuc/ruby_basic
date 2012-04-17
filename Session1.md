@@ -561,5 +561,12 @@ has_and = /and/i
 ```
 
 ## Symbols
+
+Ruby memiliki object spesial yang bernama *symbol*. Symbol selalu diawali dengan titik dua `:`,
+seperti `:indonesia`. Hanya memiliki satu copy untuk setiap symbol, sehingga symbol yang sama
+pasti memiliki object yang sama.
+
+Symbol biasanya digunakan sebagai `key` atau indentifier dalam hash atau object ruby.
+
 ## Hashes
 ## Methods
