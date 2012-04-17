@@ -91,10 +91,51 @@ yang berarti bahwa ada 1 test yang dijalankan tanpa failure.
 
 ### Introduction to TDD
 
-TDD (test driven development) adalah 
+TDD (test driven development) adalah metode pembuatan software dengan menuliskan test
+terlebih dahulu, baru kemudian menulis kode implementasinya. Setelah kode implementasi
+memenuhi testnya, kode kemudian di refactor ke dalam bentuk yang lebih modular.
 
+Misalnya kita akan menulis kode untuk mengubah besaran temperatur dari celsius ke fahrenheit
+dan sebaliknya. Pertama, kita akan membuat list fitur dari kode tersebut, yaitu:
 
-## Red-Green-Refactor
-## Describing a feature
-## Verifying expectations
-## Mocks & Stubs
+* dapat mengubah temperatur dari celsius ke fahrenheit
+* dapat mengubah temperatur dari fahrenheit ke celsius
+
+kemudian, kita buat test case nya terlebih dahulu, sebagai berikut:
+
+```ruby
+  # temperature_converter_test.rb
+
+  require 'minitest/autorun'
+
+  describe TemperatureConverter do
+    it "can convert temperature from celsius to fahrenheit" do
+      TemperatureConverter.new(10).celsius_to_fahrenheit.must_equal 50
+    end
+
+    it "can convert temperature from fahrenheit to celsius" do
+      TemperatureConverter.new(50).fahrenheit_to_celsius.must_equal 10
+    end
+  end
+```
+
+Jika kita jalankan test ini, maka tentu akan gagal. Baru kemudian kita buat implementasinya
+sampai testnya berhasil.
+
+```ruby
+  # temperature_converter.rb
+
+  class TemperatureConverter
+    def initialize(temp)
+      @temp = temp
+    end
+
+    def celsius_to_fahrenheit
+      @temp * 9 / 5 + 32
+    end
+
+    def fahrenheit_to_celsius
+      (@temp - 32) * 5 / 9
+    end
+  end
+```
