@@ -431,8 +431,39 @@ menggunakan literal `[]` dan mengisi elemennya secara langsung.
   months = ["January", "February", "March"]
 ```
 
-## Loop Constructs
+### Array methods
+
+Berikut ini adalah beberapa method penting yang sering kita pakai:
+
+* `array + other_array`
+  mereturn array baru dengan menggabungkan kedua array.
+
+* `array - other_array`
+  mereturn array baru dengan menghapus semua elemen `array` yang muncul di `other_array`.
+
+* `array << object`
+  memasukkan `object` ke akhir array.
+
+* `array == other_array`
+  mengecek apakah `array` memiliki elemen yang sama (yang masing-masing dibandingkan dengan method `==`)
+  dengan `other_array`
+
+* `array <=> other_array`
+  mereturn integer (-1, 0 atau 1) berdasarkan perbandingan elemen-elemen dalam kedua array
+
+* `array[index]`
+  mereturn elemen pada `index`, menghasilkan nil jika tidak ada elemen pada index tersebut.
+
+* `array.each{|item| block}`
+  menjalankan block untuk setiap elemen array, menggunakan elemen array tersebut sebagai parameter.
+
+* `array.map{|item| block}`
+  menjalankan block untuk setiap elemen array, dan menghasilkan array baru dengan elemen hasil eksekusi blok tersebut.
+
 ## Code Blocks
+
+
+
 ## Ranges
 ## Regular Expressions
 ## Symbols
