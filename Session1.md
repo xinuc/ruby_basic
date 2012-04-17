@@ -400,6 +400,36 @@ Kita dapat mengakses elemen terakhir dari array dengan menggunakan index -1,
 kedua dari belakang dengan -2 dan seterusnya. Ukuran array di ruby dinamis dan dapat bertambah sesuai
 dengan kebutuhan secara otomatis.
 
+### Inisiasi array
+
+Ada beberapa cara untuk membuat / menginisiasi suatu array. Yang pertama adalah dengan memanggil method
+`new` pada kelas `Array`
+
+```ruby
+  months = Array.new
+```
+
+Kita dapat menentukan panjang awal suatu array ketika inisiasi.
+
+```ruby
+  months = Array.new 12
+```
+Array `months` sekarang memiliki panjang 12.
+
+Kita juga dapat melihat berapa panjang dari sebuah array.
+
+```ruby
+  months.size # 12
+  #atau
+  months.length # 12
+```
+
+Tetapi cara yang paling mudah dan paling umum digunakan untuk menginisiasi sebuah array adalah dengan
+menggunakan literal `[]` dan mengisi elemennya secara langsung.
+
+```ruby
+  months = ["January", "February", "March"]
+```
 
 ## Loop Constructs
 ## Code Blocks
