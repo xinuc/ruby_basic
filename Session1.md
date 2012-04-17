@@ -23,7 +23,7 @@ Berikut ini adalah contoh program hello world di ruby:
   puts "Hello world"
 ```
 
-## Menjalankan ruby
+## Menjalankan Ruby
 
 Cara paling mudah untuk mencoba ruby adalah dengan menggunakan irb (interactive ruby).
 

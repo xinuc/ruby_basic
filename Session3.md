@@ -51,7 +51,9 @@ end
 hoo # => Exception: Negative number
 ```
 
-Selain menggunakan keyword `rescue` dan `raise`, kita bisa juga menggunakan method `catch` dan `throw` pada Ruby. Penggunaan argumen `catch` dan `throw` pada Ruby ini berbeda dengan di Java, meskipun namanya sama. 
+Selain menggunakan keyword `rescue` dan `raise`, kita bisa juga menggunakan method `catch`
+dan `throw` pada Ruby. Penggunaan argumen `catch` dan `throw` pada Ruby ini berbeda
+dengan di Java, meskipun namanya sama. 
 
 ```ruby
 def print_me(n)
@@ -64,6 +66,8 @@ catch(:done) do
   print_me(5)
 end
 ```
+
+Penggunaan `throw` dan `catch` di ruby sangat jarang dilakukan dan sebaiknya dihindari
 
 ## Advanced Blocks
 
@@ -106,7 +110,11 @@ end
 
 Ruby memungkinkan kita menyimpan *procedure* atau `Proc` sebagai objek lengkap dengan konteksnya.
 
-Penggunaan *block* pada Ruby itu relatif sederhana. Meskipun demikian, kita mungkin perlu punya beberapa *block* yang berbeda dan menggunakannya berkali-kali. Untuk menghindari kode yang repetitif tersebut, kita bisa menyimpannya sebagai *procedure* atau `Proc`, sebagai objek yang lengkap dengan konteksnya. Perbedaan antara *block* dan `Proc` adalah *block* merupakan suatu `Proc` yang tidak bisa disimpan dan merupakan solusi sekali pakai. 
+Penggunaan *block* pada Ruby itu relatif sederhana. Meskipun demikian,
+kita mungkin perlu punya beberapa *block* yang berbeda dan menggunakannya berkali-kali.
+Untuk menghindari kode yang repetitif tersebut, kita bisa menyimpannya sebagai *procedure*
+atau `Proc`, sebagai objek yang lengkap dengan konteksnya. Perbedaan antara *block* dan
+`Proc` adalah *block* merupakan suatu `Proc` yang tidak bisa disimpan dan merupakan solusi sekali pakai. 
 
 ```ruby
 def foo
@@ -132,7 +140,8 @@ foo # => counting - 12345
 
 ### Lambda
 
-Di Ruby, *lambda* merupakan suatu *method* yang menciptakan objek *Proc* yang terkait dengan konteks saat ini dan melakukan pengecekan parameter ketika dipanggil.
+Di Ruby, *lambda* merupakan suatu *method* yang menciptakan objek *Proc* yang terkait dengan konteks saat ini
+dan melakukan pengecekan parameter ketika dipanggil.
 
 Berbeda dengan Proc, lambda akan mengecek jumlah argumen yang dioper. 
 
@@ -161,28 +170,48 @@ end
 
 ## Classes as Objects
 
-*Object* merupakan *root* dari hierarki kelas di Ruby. Semua *method* dari kelas *Object* akan tersedia di seluruh kelas kecuali di-*override* secara eksplisit. Selengkapnya ada di http://www.ruby-doc.org/core/classes/Object.html
+*Object* merupakan *root* dari hierarki kelas di Ruby. Semua *method* dari kelas *Object* akan tersedia
+di seluruh kelas kecuali di-*override* secara eksplisit. Selengkapnya ada di http://www.ruby-doc.org/core/classes/Object.html
 
 
 ## Metaprogramming
 
-*Metaprogramming* merupakan pemrograman yang memanipulasi program lainnya atau bahkan dirinya sendiri, atau mengerjakan hal-hal yang biasanya dilakukan pada *compile time*, pada waktu *runtime*. Kemampuan suatu objek untuk memanipulasi dirinya sendiri ini sering disebut sebagai *reflection*.
+*Metaprogramming* merupakan pemrograman yang memanipulasi program lainnya atau bahkan dirinya sendiri,
+atau mengerjakan hal-hal yang biasanya dilakukan pada *compile time*, pada waktu *runtime*.
+Kemampuan suatu objek untuk memanipulasi dirinya sendiri ini sering disebut sebagai *reflection*.
+
+Metaprogramming di ruby memanfaatkan sifat ruby yang sangat dinamis. Beberapa teknik yang sering digunakan
+dalam metaprogramming di ruby antara lain:
 
 ### Monkey Patching
 
-Salah satu bentuk *metaprogramming* adalah *monkey patching*, yaitu memodifikasi *runtime code* dari suatu bahasa yang dinamis tanpa mengubah *source code* aslinya. 
+Salah satu bentuk *metaprogramming* adalah *monkey patching*, yaitu memodifikasi *runtime code* dari suatu
+bahasa yang dinamis tanpa mengubah *source code* aslinya. 
+
+Contoh yang sangat menarik dalam monkey patching di ruby adalah dengan melakukan overwrite kelas yang
+sudah didefinisikan sebelumnya, termasuk kelas yang built-in (bawaan) ruby seperti `Fixnum`.
+Kelas dalam ruby dapat dibuka dan didefinisikan ulang kapanpun kita mau. Dengan demikian kita dapat
+dengan mudah mengubah behaviour dari suatu object sesuai keinginan kita.
+
+Dibawah ini adalah contoh monkey patching yang sangat berbahaya. Di sini kita membuka kembali kelas `Fixnum`
+yang merupakan kelas bagi angka integer bawaan ruby. Kemudian kita mendefinisikan ulang method `+` untuk
+selalu me-return angka 42 kapanpun.
 
 ```ruby
-class Array
-  def foo
-    puts "Monkey patched!"
+class Fixnum
+  def +(x)
+    42
   end
 end
 
-[ 1, 2, 3, 4, 5 ].foo # => Monkey patched!
+3 + 4 # => 42
 ```
 
-Kita juga bisa meng-*override* semua objek, misalnya dengan menambahkan timestamp.
+Kita bahkan juga bisa meng-*override* semua objek dengan cara meng-override kelas `Object` yang merupakan
+hirarki kelas tertinggi, sehingga semua objek akan terpengaruh.
+
+Contoh berikut ini menambahkan atribut timestamp bagi semua object, sehingga setiap object akan menyimpan
+waktu ketika object tersebut diinisiasi.
 
 ```ruby
 class Object
@@ -206,16 +235,21 @@ Foo.new.timestamp
 
 ### method_missing
 
-Ketika kita mengirimkan pesan ke objek, objek akan mengeksekusi *method* pertama yang ditemukannya pada *method lookup path* dengan nama yang sama persis dengan pesan. Jika tidak ditemukan, ia akan melemparkan *exception* NoMethodError, kecuali kalau kita sudah menyediakan sebuah *method* bernama `method_missing`.
+Ketika kita mengirimkan pesan ke objek, objek akan mengeksekusi *method* pertama yang ditemukannya pada
+*method lookup path* dengan nama yang sama persis dengan pesan. Jika tidak ditemukan,
+ia akan melemparkan *exception* NoMethodError, kecuali kalau kita sudah menyediakan sebuah *method* bernama `method_missing`.
+
+`method_nissing` dapat kita override sesuai dengan keinginan kita. Misalnya kita dapat meng-override `method_missing`
+sehingga jika kita memanggil method yang tidak tersedia, object tersebut akan memberi kita peringatan.
 
 ```ruby
 class Foo
   def method_missing(m, *args, &block)  
-    puts "#{m} not found"  
+    puts "method #{m} is not defined. Please define it first."  
   end  
 end
 
-Foo.new.bar # => bar not found
+Foo.new.bar # => method bar is not defined. Please define it first.
 ```
 
 ## I/O
