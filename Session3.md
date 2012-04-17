@@ -180,22 +180,38 @@ di seluruh kelas kecuali di-*override* secara eksplisit. Selengkapnya ada di htt
 atau mengerjakan hal-hal yang biasanya dilakukan pada *compile time*, pada waktu *runtime*.
 Kemampuan suatu objek untuk memanipulasi dirinya sendiri ini sering disebut sebagai *reflection*.
 
+Metaprogramming di ruby memanfaatkan sifat ruby yang sangat dinamis. Beberapa teknik yang sering digunakan
+dalam metaprogramming di ruby antara lain:
+
 ### Monkey Patching
 
 Salah satu bentuk *metaprogramming* adalah *monkey patching*, yaitu memodifikasi *runtime code* dari suatu
 bahasa yang dinamis tanpa mengubah *source code* aslinya. 
 
+Contoh yang sangat menarik dalam monkey patching di ruby adalah dengan melakukan overwrite kelas yang
+sudah didefinisikan sebelumnya, termasuk kelas yang built-in (bawaan) ruby seperti `Fixnum`.
+Kelas dalam ruby dapat dibuka dan didefinisikan ulang kapanpun kita mau. Dengan demikian kita dapat
+dengan mudah mengubah behaviour dari suatu object sesuai keinginan kita.
+
+Dibawah ini adalah contoh monkey patching yang sangat berbahaya. Di sini kita membuka kembali kelas `Fixnum`
+yang merupakan kelas bagi angka integer bawaan ruby. Kemudian kita mendefinisikan ulang method `+` untuk
+selalu me-return angka 42 kapanpun.
+
 ```ruby
-class Array
-  def foo
-    puts "Monkey patched!"
+class Fixnum
+  def +(x)
+    42
   end
 end
 
-[ 1, 2, 3, 4, 5 ].foo # => Monkey patched!
+3 + 4 # => 42
 ```
 
-Kita juga bisa meng-*override* semua objek, misalnya dengan menambahkan timestamp.
+Kita bahkan juga bisa meng-*override* semua objek dengan cara meng-override kelas `Object` yang merupakan
+hirarki kelas tertinggi, sehingga semua objek akan terpengaruh.
+
+Contoh berikut ini menambahkan atribut timestamp bagi semua object, sehingga setiap object akan menyimpan
+waktu ketika object tersebut diinisiasi.
 
 ```ruby
 class Object
@@ -221,16 +237,19 @@ Foo.new.timestamp
 
 Ketika kita mengirimkan pesan ke objek, objek akan mengeksekusi *method* pertama yang ditemukannya pada
 *method lookup path* dengan nama yang sama persis dengan pesan. Jika tidak ditemukan,
-  ia akan melemparkan *exception* NoMethodError, kecuali kalau kita sudah menyediakan sebuah *method* bernama `method_missing`.
+ia akan melemparkan *exception* NoMethodError, kecuali kalau kita sudah menyediakan sebuah *method* bernama `method_missing`.
+
+`method_nissing` dapat kita override sesuai dengan keinginan kita. Misalnya kita dapat meng-override `method_missing`
+sehingga jika kita memanggil method yang tidak tersedia, object tersebut akan memberi kita peringatan.
 
 ```ruby
 class Foo
   def method_missing(m, *args, &block)  
-    puts "#{m} not found"  
+    puts "method #{m} is not defined. Please define it first."  
   end  
 end
 
-Foo.new.bar # => bar not found
+Foo.new.bar # => method bar is not defined. Please define it first.
 ```
 
 ## I/O
