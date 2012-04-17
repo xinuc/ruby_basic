@@ -219,3 +219,51 @@ Foo.new.bar # => bar not found
 ```
 
 ## I/O
+
+Dasar dari semua input/output di Ruby adalah kelas `IO`, di mana merepresentasikan stream input/output data dalam bentuk byte. Standard stream mencakup stdin (keyboard), stdout (display ke layar) dan stderr (error output). Parameter pertama konstruktor kelas IO adalah nomer *file descriptor*, sedangkan parameter keduanya merupakan mode I/O. Ada beberapa macam mode I/O, antara lain: r, r+, w, w+, a, a+, b
+
+|    Stream   | File Descriptor |
+|:-----------:|:---------------:|
+|    stdin    |         0       |
+|    stdout   |         1       |
+|    stderr   |         2       |
+
+```ruby
+ios = IO.new( 1, "w" )
+ios.puts "Hello IO" # => Hello IO
+
+ios.fileno # => 1
+ios.to_i # => 1
+
+ios.close
+```
+
+## Files
+
+Di Ruby, kita bisa memanipulasi file dan folder dengan menggunakan *method-method* dari kelas Dir dan File. 
+
+Buat dan hapus folder:
+```ruby
+Dir.mkdir("/tmp/ruby_basic",777)
+dir = Dir.pwd
+puts dir
+Dir.rmdir("/tmp/ruby_basic")
+```
+
+Buat dan hapus file:
+```ruby
+file = File.new( "aaaa.txt", "w" ) 
+File.rename( "aaaa.txt", "bbbb.txt" ) 
+File.delete( "bbbb.txt" )
+```
+
+Pemrosesan file per baris pada Ruby:
+```ruby
+file = File.open( "Readme.md" ) if File::exists?( "Readme.md" )
+
+file.each do |line| 
+  print "#{file.lineno}. ", line
+end unless file.closed?
+
+file.close
+```
