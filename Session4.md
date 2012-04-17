@@ -7,7 +7,7 @@ yang bisa kita pakai sesuai kebutuhan kita.
 Standar distribusi library di ruby adalah dengan menggunakan format yang
 bernama *gem*.
 
-### Leveraging Libraries
+### Instalasi & menggunakan gems
 
 Sebuah gem adalah suatu kumpulan file library beserta metadatanya yang
 dikompresi dengan gzip, biasanya dengan ekstensi `.gem`.
@@ -18,13 +18,33 @@ perintah
   $ gem install <nama gem>
 ```
 
+contoh, kita akan menginstall builder, library untuk membuat dokumen xml:
+
+```
+  $ gem install builder
+```
+
 Untuk menggunakan library, baik yang bawaan ruby maupun yang diinstall
 menggunakan gem, kita menggunakan method `require "<nama file>"`.
 
+```ruby
+require "rubygems" # tidak dibutuhkan untuk ruby 1.9 ke atas
+require "builder"
+
+xml = Builder::XmlMarkup.new(STDOUT, 2)
+xml.person do
+  name("Slamet Riyadi")
+  location("Indonesia")
+end
+```
+
 ### RubyGems & Bundler
 
+Pada umumnya, library ruby opensource dipublish oleh penulisnya ke rubygems.org,
+sehingga siapapun dapat menginstall dan menggunakannya dengan mudah.
 
-## Packaging Programs and Libraries for Distribution
+
+### Packaging Programs and Libraries for Distribution
 
 
 ## Testing
