@@ -277,6 +277,7 @@ ios.close
 Di Ruby, kita bisa memanipulasi file dan folder dengan menggunakan *method-method* dari kelas Dir dan File. 
 
 Buat dan hapus folder:
+
 ```ruby
 Dir.mkdir("/tmp/ruby_basic",777)
 dir = Dir.pwd
@@ -285,6 +286,7 @@ Dir.rmdir("/tmp/ruby_basic")
 ```
 
 Buat dan hapus file:
+
 ```ruby
 file = File.new( "aaaa.txt", "w" ) 
 File.rename( "aaaa.txt", "bbbb.txt" ) 
@@ -292,6 +294,7 @@ File.delete( "bbbb.txt" )
 ```
 
 Pemrosesan file per baris pada Ruby:
+
 ```ruby
 file = File.open( "Readme.md" ) if File::exists?( "Readme.md" )
 
