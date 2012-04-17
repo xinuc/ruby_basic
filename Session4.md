@@ -38,13 +38,49 @@ xml.person do
 end
 ```
 
-### RubyGems & Bundler
+### Bundler
+
+Untuk memanage library-library yang digunakan pada suatu project, kita dapat
+menggunakan bundler.
+
+Pada root directory suatu project, kita mencatat semua library yang kita gunakan
+beserta versi masing-masing pada file dengan nama *Gemfile*.
+
+```
+mkdir my_project
+cd my_project
+touch Gemfile
+```
+
+```ruby
+# Gemfile
+source 'http://rubygems.org'
+
+gem 'rails', '3.2.3'
+gem "authlogic"
+gem 'will_paginate', :git => "git://github.com/bukalapak/will_paginate.git"
+gem "simple_form", "~> 2.0"
+gem "whenever", :require => false
+```
+
+Untuk menginstall library yang dibutuhkan, kita menggunakan perintah `bundle install`.
+Bundler kemudian akan membuat file dengan nama *Gemfile.lock* yang mencatat versi
+library yang digunakan saat ini, sehingga ketika kita menjalankan `bundle install`
+pada lain waktu, kita akan mendapatkan library dengan versi yang sama.
+
+Kemudian pada project kita, kita me-load library menggunakan bundler sebagai berikut:
+
+```ruby
+require "rubygems"
+require "bundler/setup"
+
+require "authlogic"
+```
+
+### Packaging Programs and Libraries for Distribution
 
 Pada umumnya, library ruby opensource dipublish oleh penulisnya ke rubygems.org,
 sehingga siapapun dapat menginstall dan menggunakannya dengan mudah.
-
-
-### Packaging Programs and Libraries for Distribution
 
 
 ## Testing
