@@ -31,10 +31,10 @@ menggunakan gem, kita menggunakan method `require "<nama file>"`.
 require "rubygems" # tidak dibutuhkan untuk ruby 1.9 ke atas
 require "builder"
 
-xml = Builder::XmlMarkup.new(STDOUT, 2)
+xml = Builder::XmlMarkup.new
 xml.person do
-  name("Slamet Riyadi")
-  location("Indonesia")
+  xml.name "Slamet Riyadi"
+  xml.location "Indonesia"
 end
 ```
 
