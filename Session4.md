@@ -79,9 +79,55 @@ require "authlogic"
 
 ### Packaging Programs and Libraries for Distribution
 
+Untuk membuat kode kita menjadi gem, kita akan menggunakan bundler untuk menyiapkan
+package dan strukturnya, sebagai berikut:
+
+```
+bundle gem namagem
+```
+
+yang akan menghasilkan struktur direktori di mana kita bisa meletakkan file-file library kita.
+Kemudian kita edit file namagem.gemspec dengan data yang sesuai:
+
+```ruby
+# -*- encoding: utf-8 -*-
+$:.push File.expand_path("../lib", __FILE__)
+require "namagem/version"
+
+Gem::Specification.new do |s|
+  s.name        = "namagem"
+  s.version     = Namagem::VERSION
+  s.platform    = Gem::Platform::RUBY
+  s.authors     = ["Nugroho Herucahyono"]
+  s.email       = ["xinuc@xinuc.org"]
+  s.homepage    = ""
+  s.summary     = %q{Gem tanpa fitur}
+  s.description = %q{Gem tanpa fitur.}
+  
+  s.add_development_dependency "rspec"
+
+  s.rubyforge_project = "namagem"
+
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.require_paths = ["lib"]
+end
+```
+
+Selanjutnya kita dapat melakukan build gem tersebut.
+
+```
+gem build namagem.gemspec
+```
+
 Pada umumnya, library ruby opensource dipublish oleh penulisnya ke rubygems.org,
 sehingga siapapun dapat menginstall dan menggunakannya dengan mudah.
+Kita dapat mempublish gem kita dengan perintah sebagai berikut:
 
+```
+gem push namagem-0.0.1.gem
+```
 
 ## Testing
 
