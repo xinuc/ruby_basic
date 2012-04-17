@@ -619,6 +619,3 @@ Berikut ini adalah beberapa method hash yang sering kita gunakan:
 
 * `hash.merge(another_hash)` menghasilkan hash baru yang merupakan gabungan kedua hash. Jika ada
    key yang sama, akan di override oleh nilai dari `another_hash`.
-
-
-## Methods
