@@ -392,8 +392,99 @@ dari `if else` statement.
 
 ## Arrays
 
-## Loop Constructs
+Array adalah salah satu kelas bawaan ruby. Array adalah suatu koleksi object yang berurutan dan dapat
+diakses berdasarkan indexnya. Dalam ruby, array dapat menyimpan semua object seperti String, Fixnum,
+Hash bahkan array yang lain. Setiap elemen di dalam array diasosiasikan dan diakses dengan index
+tertentu. Elemen - elemen array secara otomatis diindex dengan angka dimulain dari 0.
+Kita dapat mengakses elemen terakhir dari array dengan menggunakan index -1,
+kedua dari belakang dengan -2 dan seterusnya. Ukuran array di ruby dinamis dan dapat bertambah sesuai
+dengan kebutuhan secara otomatis.
+
+### Inisiasi array
+
+Ada beberapa cara untuk membuat / menginisiasi suatu array. Yang pertama adalah dengan memanggil method
+`new` pada kelas `Array`
+
+```ruby
+  months = Array.new
+```
+
+Kita dapat menentukan panjang awal suatu array ketika inisiasi.
+
+```ruby
+  months = Array.new 12
+```
+Array `months` sekarang memiliki panjang 12.
+
+Kita juga dapat melihat berapa panjang dari sebuah array.
+
+```ruby
+  months.size # 12
+  #atau
+  months.length # 12
+```
+
+Tetapi cara yang paling mudah dan paling umum digunakan untuk menginisiasi sebuah array adalah dengan
+menggunakan literal `[]` dan mengisi elemennya secara langsung.
+
+```ruby
+  months = ["January", "February", "March"]
+```
+
+### Array methods
+
+Berikut ini adalah beberapa method penting yang sering kita pakai:
+
+* `array + other_array`
+  mereturn array baru dengan menggabungkan kedua array.
+
+* `array - other_array`
+  mereturn array baru dengan menghapus semua elemen `array` yang muncul di `other_array`.
+
+* `array << object`
+  memasukkan `object` ke akhir array.
+
+* `array == other_array`
+  mengecek apakah `array` memiliki elemen yang sama (yang masing-masing dibandingkan dengan method `==`)
+  dengan `other_array`
+
+* `array <=> other_array`
+  mereturn integer (-1, 0 atau 1) berdasarkan perbandingan elemen-elemen dalam kedua array
+
+* `array[index]`
+  mereturn elemen pada `index`, menghasilkan nil jika tidak ada elemen pada index tersebut.
+
+* `array.each{|item| block}`
+  menjalankan block untuk setiap elemen array, menggunakan elemen array tersebut sebagai parameter.
+
+* `array.map{|item| block}`
+  menjalankan block untuk setiap elemen array, dan menghasilkan array baru dengan elemen hasil eksekusi blok tersebut.
+
 ## Code Blocks
+
+Sebuah _block_ dapat dianggap sebagai sebuah method yang tidak memiliki nama.
+Block dalam ruby dapat ditulis di dalam _brackets_ `{...}` atau `do...end`.
+Konsep block sering dipakai dalam ruby, misalnya dalam beberapa method milik array.
+
+```ruby
+[1,2,3].each do |item|
+  puts item
+end
+```
+
+Block juga berperilaku sebagai _closure_, yaitu kode dalam sebuah block dapat mengakses variabel diluarnya,
+tetapi kode di luar block tidak dapat mengakses variabel lokal dalam block tersebut.
+
+```ruby
+prefix = "print "
+[1,2,3].each do |item|
+  puts prefix
+  puts item
+end
+
+puts item # error
+```
+
 ## Ranges
 ## Regular Expressions
 ## Symbols
