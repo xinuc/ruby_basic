@@ -67,25 +67,13 @@ end
 
 ## Advanced Blocks
 
-Salah satu fitur yang paling diunggulkan Ruby adalah *closure* (fungsi tanpa nama). *Closure* itu seperti *method* di dalam *method* lainnya, yang mengacu atau berbagai *non-local variables*. *Closure* pada Ruby diimplementasikan dengan *block*, *proc* dan *lambda*.
+### Implicit Block
 
-### Block
+Setiap method di ruby dapat menerima block sebagai argumen terakhir, sekalipun dalam definisi method tersebut
+tidak mencantumkan argumen block.
 
-Di Ruby, *block* biasanya diapit oleh kurung kurawal `{ }`, atau dengan `do/end`.
-
-```ruby
-days = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ]
-
-days.each do |element|
-  puts element
-end
-
-days.each { |e| puts e }
-```
-
-#### Yield
-
-Pernyataan `yield` akan mengeksekusi *block* yang berasosiasi dengan suatu *method*.
+Untuk mengecek apakah terdapat sebuah argumen block, panggil `block_given?` dalam sebuah method.
+Sedangkan untuk mengeksekusi block tersebut dapat menggunakan `yield`.
 
 ```ruby
 def foo
@@ -102,6 +90,18 @@ foo { print 'Hello ' } # => Hello Hello
 foo # => No block here
 ```
 
+`yield` dapat menerima argumen yang akan diteruskan ke block yang dieksekusi
+
+```ruby
+def foo
+  yield([1,2,3])
+end
+
+foo do |array|
+  puts array
+end
+```
+
 ### Proc
 
 Ruby memungkinkan kita menyimpan *procedure* atau `Proc` sebagai objek lengkap dengan konteksnya.
@@ -110,19 +110,23 @@ Penggunaan *block* pada Ruby itu relatif sederhana. Meskipun demikian, kita mung
 
 ```ruby
 def foo
+  label = proc do
+    print "counting"
+  end
+
   count = Proc.new do
     [1,2,3,4,5].each do |i| 
       print i 
     end
+    puts
   end
-
-  count.call
+  
+  label.call
   print " - " 
   count.call
-  puts
 end
 
-foo # => 12345 - 12345
+foo # => counting - 12345
 ```
 
 
@@ -141,6 +145,17 @@ end
 foo(Proc.new { |a, b, c| puts "a = #{a}, b = #{b}, c = #{c.class}" } ) # => a = 1, b = 2, c = NilClass
 
 foo(lambda { |a, b, c| puts "a = #{a}, b = #{b}, c = #{c.class}" } ) # => ArgumentError: wrong number of arguments (2 for 3)
+```
+### Passing Proc Around
+
+Untuk mem-pass suatu proc atau lambda sebagai argumen suatu method, variabel proc/lambda tersebut diberi prefix `&`
+
+```ruby
+print_item = proc do |item|
+  puts item
+end
+
+[1,2,3].each &print_item
 ```
 
 
