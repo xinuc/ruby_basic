@@ -182,5 +182,40 @@ end
 [ 1, 2, 3, 4, 5 ].foo # => Monkey patched!
 ```
 
+Kita juga bisa meng-*override* semua objek, misalnya dengan menambahkan timestamp.
 
-## IO
+```ruby
+class Object
+  attr_accessor :timestamp
+end
+
+class Class
+  alias_method :old_new, :new
+  def new(*args)
+    result = old_new(*args)
+    result.timestamp = Time.now
+    result
+  end
+end
+
+class Foo
+end
+
+Foo.new.timestamp
+```
+
+### method_missing
+
+Ketika kita mengirimkan pesan ke objek, objek akan mengeksekusi *method* pertama yang ditemukannya pada *method lookup path* dengan nama yang sama persis dengan pesan. Jika tidak ditemukan, ia akan melemparkan *exception* NoMethodError, kecuali kalau kita sudah menyediakan sebuah *method* bernama `method_missing`.
+
+```ruby
+class Foo
+  def method_missing(m, *args, &block)  
+    puts "#{m} not found"  
+  end  
+end
+
+Foo.new.bar # => bar not found
+```
+
+## I/O

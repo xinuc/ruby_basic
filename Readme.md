@@ -44,7 +44,7 @@ install ruby dengan perintah `sudo apt-get install ruby`
 * Advanced Blocks
 * Classes as Objects
 * Metaprogramming
-* IO
+* I/O
 
 ## Session 4: Testing
 
