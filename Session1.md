@@ -569,4 +569,56 @@ pasti memiliki object yang sama.
 Symbol biasanya digunakan sebagai `key` atau indentifier dalam hash atau object ruby.
 
 ## Hashes
+
+Hash adalah koleksi pasangan `key-value` yang dalam ruby memiliki syntax sebagai berikut:
+
+```ruby
+my_hash = { :name => "Nugroho", :age => 25 }
+```
+
+Hash mirip seperti array, tetapi jika array diindex dengan integer yang dimulai dari 0, hash
+diindex dengan object ruby. Semua object dalam ruby dapat dijadikan key ataupun value dalam
+hash. Tetapi pada umumnya kita lebih sering menggunakan symbol atau string sebagai key dari
+sebuah hash.
+
+Keys dalam hash harus unik. Jika kita mengakses index hash yang tidak ada, kita akan mendapatkan
+nilai `nil`.
+
+### Inisiasi Hash
+
+Untuk menginisiasi sebuah hash, kita dapat memanggil method new dari kelas `Hash`:
+
+```ruby
+  my_hash = Hash.new
+```
+
+namun pada umumnya kita lebih sering membuat hash dengan literal hash sebagai berikut:
+
+
+```ruby
+  my_hash = {}
+```
+
+### Hash methods
+
+Berikut ini adalah beberapa method hash yang sering kita gunakan:
+
+* `hash.[key]` digunakan untuk mengakses value hash dengan `key` tertentu. Akan mereturn
+   object value jika ditemukan, atau `nil` jika tidak ditemukan.
+
+* `hash.clear` menghapus semua key dan value dari hash tersebut.
+
+* `hash.delete(key)` menghapus key-value dengan `key` tertentu. Akan mereturn value tersebut.
+
+* `hash.delete_if { |key,value| block }` menghapus key-value jika evaluasi `block` menghasilkan
+   nilai true.
+
+* `hash.each { |key,value| block }` melakukan iterasi dan mengevaluasi block untuk semua key-value.
+
+* `hash.keys` menghasilkan array dari semua `key` dalam hash tersebut.
+
+* `hash.merge(another_hash)` menghasilkan hash baru yang merupakan gabungan kedua hash. Jika ada
+   key yang sama, akan di override oleh nilai dari `another_hash`.
+
+
 ## Methods
